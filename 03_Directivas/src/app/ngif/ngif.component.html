@@ -1,0 +1,32 @@
+<hr/>
+
+<h1>Directiva ngif</h1>
+
+<!-- if -->
+<button (click)="mostrarOcultarTexto1()">Habilitar/Deshabilitar 'Texto1'</button>
+<h3 *ngIf="mostrarTexto1">{{texto1}}</h3>
+
+<br/><br/>
+
+<!-- if-else -->
+<button (click)="mostrarOcultarTexto2()">Habilitar/Deshabilitar 'Texto2'</button>
+
+<div *ngIf="mostrarTexto2; else texto2oculto">
+    <h3>{{texto2}}</h3>
+</div>
+<ng-template #texto2oculto>
+    <div>
+        <h4>el texto está oculto, pulse el boton para mostrarlo</h4>
+    </div>    
+</ng-template>
+
+<!-- Dentro del ngif podemos poner expresiones-->
+<button (click)="mostrarOcultarTexto3()">Habilitar/Deshabilitar 'Texto3'</button>
+<div *ngIf="condicion == 'cadena1'; else texto3oculto">
+    <h4 style="color:blue">Podemos ver el contenido: {{condicion}}</h4>
+</div>
+<ng-template #texto3oculto>
+    <h4 style="color:rgb(235, 34, 19)">NO podemos ver el contenido: {{condicion}}</h4>
+</ng-template>
+
+<hr/>

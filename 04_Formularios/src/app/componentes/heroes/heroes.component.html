@@ -1,0 +1,60 @@
+<h1>FORMULARIOS</h1>
+
+<div> 
+    <button (click)="insertar()"  [disabled]="insertarDeshabilitado">Insertar</button>
+    <button (click)="modificar()" [disabled]="modificarBorrarDeshabilitado">Modificar</button>
+    <button (click)="borrar()"    [disabled]="modificarBorrarDeshabilitado">Borrar</button>
+    <button (click)="vaciar()">Vaciar</button>
+</div>
+
+<br/>
+
+<div>
+    <label for="idHeroe">ID</label>
+    <div>
+        <!-- Operador ternario para no mostrar 0-->
+        <input id="idHeroe" disabled="disabled" value="{{id==0?'':id}}"/>
+    </div>
+
+    <label for="nombre">Nombre</label>
+    <div>
+        <input id="nombre" [(ngModel)]="nombre"/>
+        <span class="rojo" [hidden]="nombreObligatorioOculto">El nombre es obligatorio</span>
+    </div>    
+
+    <label for="universo">Universo</label>
+
+    <div>
+        <input id="universo" [(ngModel)]="universo"/>
+        <span class="rojo" [hidden]="universoObligatorioOculto">El universo es obligatorio</span>
+    </div>
+    
+</div>    
+
+<br/>
+
+<table>    
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Universo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- 
+            Recorremos la lista, y si pulsamos en alguna fila, ejecutaremos el metodo
+            "seleccionar", pasandole el heroe seleccionado
+        -->
+        <tr *ngFor="let h of listaHeroes" (click)="seleccionar(h)">
+            <td>{{ h.id }}</td>
+            <td>{{ h.nombre }}</td>
+            <td>{{ h.universo }}</td>
+        </tr>
+        <tr *ngIf="listaHeroes.length==0">
+            <td class="rojo" colspan="4">
+                No se han encontrado heroes
+            </td>
+        </tr>
+    </tbody>
+</table> 

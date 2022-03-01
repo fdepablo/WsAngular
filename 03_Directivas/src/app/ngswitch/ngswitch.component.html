@@ -1,0 +1,24 @@
+<hr/>
+
+<h1>Directiva ngSwitch</h1>
+
+<button (click)="cambiarColor()">Cambiar de color</button>
+<br/>
+
+<div [ngSwitch]="color">
+  <p *ngSwitchCase="'azul'" style="color:blue">
+    {{texto}} EN COLOR AZUL
+  </p>
+  <p *ngSwitchCase="'rojo'" style="color:red">
+    {{texto}} EN COLOR ROJO
+  </p>
+  <p *ngSwitchCase="'verde'" style="color:green">
+    {{texto}} EN COLOR VERDE
+  </p>
+  <p *ngSwitchDefault>
+    {{texto}} SIN COLOR
+  </p>
+</div>
+
+<hr/>
+

@@ -1,0 +1,23 @@
+<h1>Listado de Personas</h1>
+<!-- Podemos agragar componentes dentro del html de otros componentes -->
+<app-persona></app-persona>
+<!--   
+  Aplicamos propertie binding para traer el valor del componente.. Asi ocultaremos
+  o deshabilitaremos el botón de manera programática.
+-->
+<button [disabled]='botonHabilitado' [style]='botonOculto'>Agregar Persona</button>
+<br/>
+<!--  
+  Aplicaremos también event binding, para recoger los eventos en el componente
+-->
+<button (click)="cambiarEstadoHabilitado()">Habilitar/Deshabilitar 'Agregar Persona'</button>
+<button (click)="cambiarEstadoOculto()">Ocultar/Visualizar 'Agregar Persona'</button>
+<br/>
+
+<!--
+  Aplicammos two way binding, podemos actualizar desde el html al componente o a la inversa
+-->
+<h4>Inserta la profesión de la persona</h4>
+<input type="text" [(ngModel)]="profesion"/>
+<p>Replicando: {{profesion}}</p>
+

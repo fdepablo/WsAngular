@@ -1,0 +1,54 @@
+
+<h1>Bienvenidos al enrutamiento en Angular</h1>
+
+<!-- Routing o navegación declarativa desde la vista -->
+<div>
+  <span>Navegando desde la vista: </span>
+  <button routerLink="/componente1">Ir a Componente 1</button>
+</div>
+
+<hr/>
+<!-- 
+  Routing o navegación declarativa desde la vista con parametros
+  Ojo, son PathParams, no son QueryParams(?)
+
+  Tiene que estar definida una ruta en el fichero "app-routing.module.ts" 
+  que expresamente indique que hay parámetros, además de configurar
+  el componente que lo recibe (componete1.component.ts)
+-->
+<div>
+  <span>Navegando desde la vista mandando información: </span>
+  <button routerLink="/componente1/Capitan America/MARVEL">Ir a Componente 1</button>
+</div>
+
+<hr/>
+<!--
+Navegación declarativa pasando parámetros de manera dinámica, usaremos la directiva [routerLink]
+-->
+<div>
+  <span>Nombre: </span>
+  <input [(ngModel)]="nombre">
+  <span>Universo: </span>
+  <input [(ngModel)]="universo">
+</div>
+<div>
+  <span>Pasando valores desde la vista [routerLink]: </span>
+  <button [routerLink]="[ '/componente1', nombre, universo ]">Componente 1</button>
+</div>
+
+<!--
+Navegación declarativa haciendo el enrutamiento a nivel programático, debemos de
+crear un método que realice la lógica y llamarlo desde la plantilla
+-->
+<div>
+  <span>Pasando valores desde la vista de manera programática: </span>
+  <button (click)="routingProgramatico()">Componente 1</button>
+</div>
+
+<!-- Parametros de Query, usaremos  -->
+<div>
+  <span>Pasando valores desde la vista mediante parametros de query: </span>
+  <button [routerLink]="[ '/componente1']" 
+          [queryParams]="{parametro1:'Esto es un valor',parametro2:'Esto es otro'}">Componente 1</button>
+</div>
+<br/>

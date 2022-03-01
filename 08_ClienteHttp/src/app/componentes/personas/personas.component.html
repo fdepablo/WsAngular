@@ -1,0 +1,51 @@
+<h1>FORMULARIOS</h1>
+
+<div> 
+    <button (click)="insertar()"  [disabled]="insertarDeshabilitado">Insertar</button>
+    <button (click)="modificar()" [disabled]="modificarBorrarDeshabilitado">Modificar</button>
+    <button (click)="borrar()"    [disabled]="modificarBorrarDeshabilitado">Borrar</button>
+    <button (click)="vaciar()">Vaciar</button>
+    <button (click)="listar()">Recargar</button>
+</div>
+
+<br/>
+
+<div>
+    <label for="idPersona">ID</label>
+    <div>
+        <!-- Operador ternario para no mostrar 0-->
+        <input id="idPersona" value="{{id==-1?'':id}}"/>
+    </div>
+
+    <label for="nombre">Nombre</label>
+    <div>
+        <input id="nombre" [(ngModel)]="nombre"/>
+        <span class="rojo" [hidden]="nombreObligatorioOculto">El nombre es obligatorio</span>
+    </div>    
+
+    <label for="apellidos">Apellidos</label>
+    <div>
+        <input id="apellidos" [(ngModel)]="apellidos"/>
+        <span class="rojo" [hidden]="apellidosObligatorioOculto">Los apellidos son obligatorios</span>
+    </div>
+
+    <label for="edad">Edad</label>
+    <div>
+        <input id="edad" type="number"[(ngModel)]="edad"/>
+     </div>
+    
+</div>    
+
+<br/>
+
+<app-persona 
+    *ngFor="let p of listaPersonas" (click)="seleccionar(p.id)"
+    [persona]="p"
+>
+</app-persona>
+
+<tr *ngIf="listaPersonas.length==0">
+    <td class="rojo" colspan="4">
+        No se han encontrado personas
+    </td>
+</tr>

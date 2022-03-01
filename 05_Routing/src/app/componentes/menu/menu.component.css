@@ -1,0 +1,20 @@
+#Menu CSS in-line
+
+nav a{
+    font-size:14px;
+} 
+    
+nav li{
+    display:inline-block;
+    width:10%;
+    padding:5px 10px;
+    background-color:rgb(182, 219, 233);
+    border:1px solid #000;
+    text-align:center;
+    color:#fff;
+}
+    
+nav li:hover{
+    background-color:rgb(142, 255, 198);
+    color:#000;
+}

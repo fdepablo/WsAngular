@@ -1,0 +1,13 @@
+table,tr,td{
+    border: 1px solid black;
+}
+
+.dc{
+    color: blue;
+    background-color: aqua;
+}
+
+.marvel{
+    color : red;
+    background-color: sandybrown;
+}

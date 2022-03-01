@@ -1,0 +1,61 @@
+<h1>FORMULARIOS</h1>
+
+<div> 
+    <button (click)="insertar()"  [disabled]="insertarDeshabilitado">Insertar</button>
+    <button (click)="modificar()" [disabled]="modificarBorrarDeshabilitado">Modificar</button>
+    <button (click)="borrar()"    [disabled]="modificarBorrarDeshabilitado">Borrar</button>
+    <button (click)="vaciar()">Vaciar</button>
+</div>
+
+<br/>
+
+<div>
+    <label for="idHeroe">ID</label>
+    <div>
+        <!-- Operador ternario para no mostrar 0-->
+        <input id="idHeroe" disabled="disabled" value="{{id==0?'':id}}"/>
+    </div>
+
+    <label for="nombre">Nombre</label>
+    <div>
+        <input id="nombre" [(ngModel)]="nombre"/>
+        <span class="rojo" [hidden]="nombreObligatorioOculto">El nombre es obligatorio</span>
+    </div>    
+
+    <label for="universo">Universo</label>
+
+    <div>
+        <input id="universo" [(ngModel)]="universo"/>
+        <span class="rojo" [hidden]="universoObligatorioOculto">El universo es obligatorio</span>
+    </div>
+    
+</div>    
+
+<br/>
+
+<!-- 
+Al invocar el componente "heroe" desde "heroes" hacemos que esta clase sea la padre y "heroe"
+sea la clase hija. 
+
+Además, vamos a iterar el array de heroes y pasar la informmación del heroe 
+mediante "property binding". Ej:
+
+    [heroe]="h"
+
+- [hereo], es el nombre del atributo del componente hijo. Debe de estar decorado (o anotado) 
+con "@Input"
+- "h", es el nombre del objeto que queremos pasar desde el componente padre.
+
+Podemos pasar todos los datos que queramos desde el elemento padre al hijo.
+-->
+<app-heroe 
+    *ngFor="let h of listaHeroes" (click)="seleccionar(h.id)"
+    [heroe]="h"
+>
+</app-heroe>
+
+<tr *ngIf="listaHeroes.length==0">
+    <td class="rojo" colspan="4">
+        No se han encontrado heroes
+    </td>
+</tr>

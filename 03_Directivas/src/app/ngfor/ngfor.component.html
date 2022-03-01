@@ -1,0 +1,47 @@
+<hr/>
+
+<h1>Directiva ngfor</h1>
+
+<ul>
+  <li *ngFor="let heroe of listaHeroes; index as i">
+    Iteración: {{i}} => Id: {{heroe.id}} - Nombre: {{heroe.nombre}} - tipo: {{heroe.universo}}
+  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>NOMBRE</th>
+      <th>UNIVERSO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let heroe of listaHeroes">
+      <td>{{heroe.id}}</td>
+      <td>{{heroe.nombre}}</td>
+      <td>{{heroe.universo}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Podemos conbinarlo con un switch -->
+<h3>Combinando ngfor y ngswitch</h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>NOMBRE</th>
+      <th>UNIVERSO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let heroe of listaHeroes" [ngSwitch]="heroe.universo">
+      <td>{{heroe.id}}</td>
+      <td>{{heroe.nombre}}</td>
+      <td *ngSwitchCase="'DC'" class="dc">{{heroe.universo}}</td>
+      <td *ngSwitchCase="'MARVEL'" class="marvel">{{heroe.universo}}</td>
+    </tr>
+  </tbody>
+</table>
+<hr/>

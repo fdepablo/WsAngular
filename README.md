@@ -6,7 +6,7 @@
 
 ## Prerrequisitos
 
-Para trabajar con Angular debes estar familiarizado con las siguientes tecnologías:
+Para trabajar con Angular hay que tener conocimiento de las siguientes tecnologías:
 
 1. Conocimientos en **JavaScript**
 2. Conocimientos en **HTML**
@@ -31,7 +31,7 @@ Para comprobar que NodeJs se ha instalado adecuadamente podemos ejecutar en la c
 
 El lenguaje que utiliza Angular es TypeScript (TS) por lo que también lo deberemos de tenerlo instalado. Existen varias maneras de instalar TS, nosotros usaremos el gestor de paquetes <b>npm</b> que viene incluido en <b>NodeJs</b>.
 
-TS es un superconjunto de JS, por lo que estrictamente hablando no es necesario tener conocimientos en TS para programar en Angular. En la carpeta **00_TypeScript** podemos encontrar teoría y ejemplos de TS.
+TS es un superconjunto de JS, por lo que estrictamente hablando no es necesario tener conocimientos en TS para programar en Angular.
 
 ### NPM
 
@@ -156,9 +156,13 @@ Debería quedar algo parecido a la siguiente imagen
 
 ![settingsjson](img/settingsjson.png "settingsjson")
 
-## Notas sobre el Workspace
+## Workspace WsAngular
 
-En este WsAngular nos vamos a encontrar con ejemplos y teoria de Angular. La carpeta 00_TypeScript tiene ejemplos y teoría sobre fundamentos de TS que puede ser útiles como apoyo.
+El repositorio Angular se encuentra en la siguiente dirección:
+
+<https://github.com/fdepablo/WsAngular>
+
+En WsAngular nos vamos a encontrar con ejemplos y teoria de Angular. La carpeta **00_TypeScript** tiene ejemplos y teoría sobre fundamentos de TS que puede ser útiles como apoyo.
 
 ## Bibliografía
 

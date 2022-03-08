@@ -48,15 +48,15 @@ Vamos a ver algunos comandos útiles de <b>npm</b>, estos comandos deben de ejec
 
 - Instalar un paquete
 
-    npm install -g NOMBRE_DEL_PAQUETE
+        npm install -g NOMBRE_DEL_PAQUETE
 
 - Listar los paquetes instalados
 
-    npm list -g
+        npm list -g
 
 - Borrar un paquete
 
-    npm uninstall NOMBRE_DEL_PAQUETE
+        npm uninstall NOMBRE_DEL_PAQUETE
 
 Todos los modulos que se instalen con <b>npm</b> se pueden encontrar en la siguiente ruta de windows:
 

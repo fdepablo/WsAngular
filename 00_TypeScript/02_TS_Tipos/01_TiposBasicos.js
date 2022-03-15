@@ -1,16 +1,16 @@
 //Podemos compilar este codigo con "tsc tipos.ts" y luego ejecutarlo con "node tipos.js"
-var numero1 = "Natasha";
+var nombre1 = "Natasha";
 var numero2;
 var numero3 = 10;
 var numero4;
-console.log(numero1);
-console.log(numero2); //undefined
-console.log(numero3);
-console.log(numero4); //undefined
+console.log(nombre1);
+console.log(numero2); //el tipo es number y su valor es undefined
+console.log(numero3); //el tipo es number y su valor es 10
+console.log(numero4); //el tipo es any y su valor es undefined
 //tambien podemos declarar constantes
 var CONSTANTE = 35;
 //La siguiente linea da error, el tipo es number por declaración
-//numero1 = "Steve";
+//nombre1 = 10;
 //La siguiente linea da error, el tipo de numero3 es de tipo number, que
 //se establecio por inferencia de tipos en tiempo de ejecución
 //numero3 = "Tony"
@@ -45,3 +45,9 @@ var colorVerde = [0, 255, 0];
 colorRojo[0] = 0;
 colorVerde[2] = 255; //no podriamos asignar un String
 console.log(colorRojo);
+// Tipo union
+var numero;
+numero = 5;
+numero = "5";
+//Error, no puede ser boolean
+//numero = true

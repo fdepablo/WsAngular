@@ -14,7 +14,7 @@ El compilador de TS está escrito asimismo en TS, compilado a JS y con Licencia 
 
 ![TS-JS](img/typescript-and-js.png "TS-JS")
 
-2. Cuando compilamos un fichero TS se genera otro fichero JS, es decir, primero escribimos el codigo en TS y luengo lo compilamos generando de esta manera un fichero JS.
+2. Los ficheros TS tienen extensión **.ts**. Cuando compilamos un fichero TS se genera otro fichero JS, es decir, primero escribimos el codigo en TS y luengo lo compilamos generando de esta manera un fichero JS.
 
 ![TS-Compiler](img/typescript-compiler.png "TS-Compiler")
 
@@ -65,11 +65,21 @@ Por lo que al al llamar a la función de la siguiente manera
 
     let result = add(input1.value, input2.value);
 
-Nos daria un error en tiempo de compilación, ya que la función espera que sean números y nosotros le estamos pasando cadenas (String). TS puede ayudar a prevenir errores en tiempo de compilación.
+Nos daria un **error en tiempo de compilación**, ya que la función espera que sean números y nosotros le estamos pasando cadenas (String). TS puede ayudar a prevenir errores en tiempo de compilación.
+
+## Compilación de TS
+
+Para compilar TS usaremos el comando
+
+    tsc NOMBRE_FICHERO.ts
+
+Que nos creara el fichero NOMBRE_FICHERO.js. Una vez creado podemos usarlo para ponerlo en una página web o ejecutarlo con el comando
+
+    node NOMBRE_FICHERO.js
 
 ## Consideraciones importartes a la hora de trabajar con TS y VSC
 
-1. La terminal de VSC usa powershell para ejecutar los comandos, por lo que debemos de permitir usar el comando <b>tsc</b> ejecutando el comando <b>set-executionpolicy remotesigned</b> una única vez dentro del terminal de VSC antes de ejecutar el comandos de compilación (tsc). Otra solución puede ser ejecutar el comando <b>tsc.cmd</b> en lugar de ejecutar solamente <b>tsc</b> cada vez que queramos ejecutar el comando, pero eso haría más lento el desarrollo.
+1. La terminal de VSC usa powershell para ejecutar los comandos, por lo que debemos de permitir usar el comando <b>tsc</b> ejecutando el comando <b>set-executionpolicy remotesigned</b> una única vez dentro del terminal de VSC antes de ejecutar el comandos de compilación (tsc). Otra solución puede ser ejecutar los comandos desde un **command prompt** de VSC en vez de sobre el **powershell** (ver README.md del WsAngular para más información)
 
 2. Los ficheros JS generados al compilar los TS <b>NO</b> deberían de tocarse. Si queremos cambiar código debemos hacerlo en los ficheros TS y volver a compilarlos.
 

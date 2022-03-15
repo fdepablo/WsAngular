@@ -2,7 +2,7 @@
 
 # Angular
 
-<b>Angular</b> es un framework para aplicaciones web desarrollado en TypeScript, de código abierto, mantenido por Google, y que se utiliza para crear aplicaciones web de una sola página (Single Page Application o SPA) bajo el patrón Modelo-Vista-Controlador (MVC). No se debe confundir con AngularJs que sería la primera versión y se considera obsoleta.
+<b>Angular</b> es un framework para aplicaciones web desarrollado en TypeScript, de código abierto, mantenido por Google, y que se utiliza para crear aplicaciones web de una sola página (Single Page Application o SPA) bajo el patrón Modelo-Vista-Controlador (MVC). No se debe confundir con **AngularJS** que sería la primera versión y se considera obsoleta.
 
 ## Prerrequisitos
 
@@ -19,7 +19,7 @@ Es recomendable tener conocimientos en **TypeScript**, aunque no es obligatorio.
 Las herramientas que vamos a utilizar para trabajar con Angular son las siguientes
 
 1. Visual Studio Code (VSC). Será el IDE que usaremos para nuestro workspace, aunque podremos utilizar cualquier IDE. Enlace para descargar: <https://code.visualstudio.com/download>. NOTA: Todos los comandos que se muestran en este fichero se pueden ejecutar abriendo una terminal en VSC.
-2. NodeJs. Es un entorno de ejecución de JavaScript orientado a eventos asincronos. El uso principal será para la creación de aplicaciones web y como servidor de peticiones HTTP. Enlace para descargar: <https://nodejs.org/es/download/>.
+2. NodeJs. Es un entorno de ejecución de JavaScript orientado a eventos asincronos. El uso principal será para la creación de aplicaciones web como servidor de peticiones HTTP. Enlace para descargar: <https://nodejs.org/es/download/>. NOTA: Cuando instalemos NodeJs debemos de reiniciar VSC para que reconozca los comandos.
 
 Cuando instalemos ambas herramientas dejaremos las opciones de instalación por defecto.
 
@@ -29,7 +29,7 @@ Para comprobar que NodeJs se ha instalado adecuadamente podemos ejecutar en la c
 
 ## TypeScript (TS) y JavaScript (JS)
 
-El lenguaje que utiliza Angular es TypeScript (TS) por lo que también lo deberemos de tenerlo instalado. Existen varias maneras de instalar TS, nosotros usaremos el gestor de paquetes <b>npm</b> que viene incluido en <b>NodeJs</b>.
+El lenguaje que utiliza Angular es TypeScript (TS) por lo que también lo deberemos de tener instalado. Existen varias maneras de instalar TS, nosotros usaremos el gestor de paquetes <b>npm</b> que viene incluido en <b>NodeJs</b>.
 
 TS es un superconjunto de JS, por lo que estrictamente hablando no es necesario tener conocimientos en TS para programar en Angular.
 
@@ -42,9 +42,9 @@ Esta herramienta funciona de dos formas:
 1. Como un repositorio ampliamente utilizado para la publicación de proyectos de código abierto. Lo que significa que es una plataforma en línea donde cualquiera puede publicar y compartir herramientas escritas en JavaScript.
 2. Como una herramienta de línea de comandos para acceder a proyectos en internet. Esto ayuda a instalar y desinstalar paquetes, gestión de versiones y gestión de dependencias necesarias para ejecutar un proyecto.
 
-<b>npm</b> lo utilizaremos principalmente para instalar <b>Typescript</b> y **Angular**.
+<b>npm</b> lo utilizaremos principalmente para instalar <b>Typescript</b> y **Angular** (una única vez).
 
-Vamos a ver algunos comandos útiles de <b>npm</b>, estos comandos deben de ejecutarse en una terminal o símbolo de sistema. Es importante también **ejecutarlos como administrador**.
+Vamos a ver algunos comandos útiles de <b>npm</b>, estos comandos deben de ejecutarse en una terminal o símbolo de sistema.
 
 - Instalar un paquete
 
@@ -78,11 +78,16 @@ Con el siguiente comando podemos comprobar que versión de TS tenemos instalada 
 
     tsc -v
 
+**IMPORTANTE:** El comando **tsc** se puede ejecutar en una linea de comandos normal (cmd) o dentro de la terminal de VSC. VSC por defecto abre las terminales con **powershell**, pero también nos da la opción
+de abrirlo con **cmd**. **powershell** es posible que de problemas según la configuración de cada usuario, por lo que podemos cambiar a una terminal **cmd**, en ese caso pulsando el desplegable del boton **+** y eligiendo **command prompt**.
+
+![CMD](img/command_prompt_vsc.png "CMD")
+
 ## Instalar la CLI de Angular (Interfaz de Linea de Comandos)
 
 Utilizaremos la CLI de Angular para crear proyectos, generar código de aplicaciones y bibliotecas, y realizar una variedad de tareas de desarrollo, como pruebas, agrupación e implementación. Debemos de tener instalado [NodeJs](https://nodejs.org/es/).
 
-Los proyectos Angular de este WsAngular están generados con la versión **13.1.4**. Para instalar esta versión en nuestro ordenador debemos de ejecutar el comando
+Los proyectos Angular de este WsAngular están generados con la versión **13.1.4**. Para instalar esta versión en nuestro ordenador debemos de ejecutar el comando (COMO ADMINISTRADOR)
 
     npm install -g @angular/cli@13.1.4
 

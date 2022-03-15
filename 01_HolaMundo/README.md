@@ -14,11 +14,12 @@ Este proyecto ha sido creado mediante el CLI de angular con el comando <b>ng new
 3. La carpeta <b>src</b> es la carpeta más importante de nuestra app, ya que sobre esta será donde trabajemos en el desarrollo de la misma. Aquí podemos encontrar diferentes subcarpetas y ficheros:
 
     - index.html, será la página inicial de nuestra app
+    - assets, donde podemos poner los ficheros que queremos que sean visibles a los usuarios (imagenes, .txt, etc)
     - app, será la carpeta donde trabajaremos con nuestros primer componente. Raíz de todos los demás componentes que creemos.
 
 4. La carpeta <b>node_modules</b> contiene las librerias que nos permiten ejecutar las app de angular. Dicha carpeta tampoco será útil a la hora de desplegar una app en un servidor, solo es útil en desarrollo.
 
-**NOTA IMPORTANTE:** En el caso de este WsAngular <b>NO</b> vamos a tener la carpeta <b>node_modules</b> en los directorios raíces de los proyectos individuales, la vamos a tener en el directorio raíz del WS <b>WsAngular</b>. Esto es porque dicha carpeta pesa alrededor de 300MB y así evitamos tener en el ordenador 300MB por proyecto Angular. Node sigue trabajando igual, aunque tengamos la carpeta <b>node_modules</b> en el directorio raiz del WS en vez de en cada proyecto. 
+**NOTA IMPORTANTE:** En el caso de este WsAngular <b>NO</b> vamos a tener la carpeta <b>node_modules</b> en los directorios raíces de los proyectos individuales, la vamos a tener en el directorio raíz del <b>WsAngular</b>. Esto es porque dicha carpeta pesa alrededor de 300MB y así evitamos tener en el ordenador 300MB por proyecto Angular. Node sigue trabajando igual, aunque tengamos la carpeta <b>node_modules</b> en el directorio raiz del WS en vez de en cada proyecto. 
 
 ![node_modules](img/node_modules.png "node_modules")
 

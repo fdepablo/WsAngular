@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NgswitchComponent implements OnInit {
 
   color : string = "azul"
-  texto : string = "Esto es un texto excrito con la directiva ngswitch"
+  texto : string = "Esto es un texto escrito con la directiva ngswitch"
   contador : number = 0;
 
   constructor() { }
@@ -16,7 +16,7 @@ export class NgswitchComponent implements OnInit {
   ngOnInit() {
   }
 
-  cambiarColor(){
+  public cambiarColor(){
     this.contador++
     
     if(this.contador == 1){
@@ -25,6 +25,7 @@ export class NgswitchComponent implements OnInit {
       this.color = "verde"
     }else{
       this.color = "no definido"
+      this.contador = 0
     }
   }
 }

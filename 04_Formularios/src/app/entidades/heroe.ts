@@ -8,7 +8,8 @@ export class Heroe{
     //se puede acceder (get)
     private static contadorId : number = 1;
 
-    //Se crean automáticamente los atributos nombre y universo como publicos
+    //Al poner public en los parametros de entrada se crean automáticamente los atributos 
+    //nombre y universo como publicos
     constructor(public nombre : string, public universo : string){
         this._id = Heroe.contadorId++;
         this.nombre = nombre

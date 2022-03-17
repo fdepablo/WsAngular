@@ -19,7 +19,7 @@
     <label for="nombre">Nombre</label>
     <div>
         <input id="nombre" [(ngModel)]="nombre"/>
-        <span class="rojo" [hidden]="nombreObligatorioOculto">El nombre es obligatorio</span>
+        <span class="rojo" *ngIf="!nombreObligatorioOculto">El nombre es obligatorio</span>
     </div>    
 
     <label for="universo">Universo</label>
@@ -53,7 +53,7 @@
         </tr>
         <tr *ngIf="listaHeroes.length==0">
             <td class="rojo" colspan="4">
-                No se han encontrado heroes
+                NO SE HAN ENCONTRADO HEROES
             </td>
         </tr>
     </tbody>

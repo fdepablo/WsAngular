@@ -10,11 +10,11 @@ import { Heroe } from 'src/app/entidades/heroe';
 export class HeroesComponent implements OnInit {
 
   listaHeroes : Heroe[] = []
-  heroe : Heroe | null = null
+  heroe : Heroe | null = null//permitimos al heroe apuntar null
 
   //Habilitar o deshabilitar botones
-  insertarDeshabilitado = false
-  modificarBorrarDeshabilitado = true
+  insertarDeshabilitado = false//boton insertar habilitado por defecto
+  modificarBorrarDeshabilitado = true//botones de modificar y borrar deshabilitados por defecto
 
   //Habilitar o deshabilitar mensajes de error 
   //El nombre y el universo no pueden estar vacios
@@ -55,10 +55,14 @@ export class HeroesComponent implements OnInit {
    */
   public hayErroresEnFormulario():boolean{
     let error : boolean = false
+    this.nombreObligatorioOculto = true
+    this.universoObligatorioOculto = true
+
     if(this.nombre.trim().length==0){
       this.nombreObligatorioOculto = false
       error = true
     }
+    
     if(this.universo.trim().length==0){
       this.universoObligatorioOculto = false
       error = true

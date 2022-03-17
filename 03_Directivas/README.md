@@ -22,38 +22,38 @@ Entre las directivas estructurales más importantes podemos encontrar las siguie
 
 1. **ngIf**. Sirve para agregar contenido a una plantilla basándose en una condición. Si la condición es verdadera, se mostrará el contenido, si es falsa no lo hará. En caso de no mostrar el elemento, no lo agregaría al arbol DOM. La sintaxis sería la siguiente:
 
-    <div *ngIf="true">
-        Expression is true and ngIf is true.
-        This paragraph is in the DOM.
-    </div>
-    <div *ngIf="false">
-        Expression is false and ngIf is false.
-        This paragraph is not in the DOM.
-    </div>
+        <div *ngIf="CONDICION_VERDADERA">
+            Mostramos este div
+            Este div está en el arbol DOM
+        </div>
+        <div *ngIf="CONDICION_FALSE">
+            NO mostramos este div
+            Este div NO está en el arbol DOM
+        </div>
 
 Nótese que la estructura puede ser **div** o la que ser requiera (p,h1, etc.)
 
 Tambien podemos hacer una estructura **if-else**
 
-    <div *ngIf="condition; else elseBlock">Content to render when condition is true.</div>
-    <ng-template #elseBlock>Content to render when condition is false.</ng-template>
+        <div *ngIf="condition; else elseBlock">Contenido si es true</div>
+        <ng-template #elseBlock>Contenido si es false</ng-template>
 
 
 2. **ngswitch**. Esta directiva es parecida a la **ngIf** pero en este caso podemos evaluar varias condiciones
 
-    <container-element [ngSwitch]="switch_expression">
-        <some-element *ngSwitchCase="match_expression_1">...</some-element>
-        ...
-        <some-element *ngSwitchDefault>...</some-element>
-    </container-element>
+        <container-element [ngSwitch]="switch_expression">
+            <some-element *ngSwitchCase="match_expression_1">...</some-element>
+            ...
+            <some-element *ngSwitchDefault>...</some-element>
+        </container-element>
 
 3. **ngfor**. Esta directiva nos permite iterar listas de datos en las plantillas. La sintaxis sería la siguiente:
 
-    <li *ngFor="let item of items; index as i">...</li>
+        <li *ngFor="let item of items; index as i">...</li>
 
-**items** seria la lista a iterar (array), **item** sería cada uno de los elementos del array.
+    **items** seria la lista a iterar (array), **item** sería cada uno de los elementos del array.
 
-La segunda parte sería optativa **"index as i"**. Podemos encontrar **index** que sería en índice de la lista, e **i** que sería la variable donde vamos a almacenar el índice para usarlo dentro de la etiqueta.
+    La segunda parte sería optativa **"index as i"**. Podemos encontrar **index** que sería en índice de la lista, e **i** que sería la variable donde vamos a almacenar el índice para usarlo dentro de la etiqueta.
 
 
 

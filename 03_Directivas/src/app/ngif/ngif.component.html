@@ -3,6 +3,10 @@
 <h1>Directiva ngif</h1>
 
 <!-- if -->
+<!-- En este ejemplo mostraremos la etiqueta h3 solamente cuando mostrarTexto1 
+sea true. En este caso es más facil que en el ejemplo anterior ya que no tengo
+que jugar con propiedades. OJO! Si no pintamos la etiqueta H3, NO estara en el arbol
+DOM.-->
 <button (click)="mostrarOcultarTexto1()">Habilitar/Deshabilitar 'Texto1'</button>
 <h3 *ngIf="mostrarTexto1">{{texto1}}</h3>
 
@@ -16,7 +20,7 @@
 </div>
 <ng-template #texto2oculto>
     <div>
-        <h4>el texto está oculto, pulse el boton para mostrarlo</h4>
+        <h4>Hemos cambiado el mensaje!!!!</h4>
     </div>    
 </ng-template>
 
@@ -26,7 +30,7 @@
     <h4 style="color:blue">Podemos ver el contenido: {{condicion}}</h4>
 </div>
 <ng-template #texto3oculto>
-    <h4 style="color:rgb(235, 34, 19)">NO podemos ver el contenido: {{condicion}}</h4>
+    <h4 style="color:rgb(235, 34, 19)">Podemos ver el contenido: {{condicion}}</h4>
 </ng-template>
 
 <hr/>

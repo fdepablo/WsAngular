@@ -4,7 +4,7 @@
 
 <ul>
   <li *ngFor="let heroe of listaHeroes; index as i">
-    Iteración: {{i}} => Id: {{heroe.id}} - Nombre: {{heroe.nombre}} - tipo: {{heroe.universo}}
+    Iteración: {{i}} => Id: {{heroe.id}} - Nombre: {{heroe.nombre}} - Universo: {{heroe.universo}}
   </li>
 </ul>
 
@@ -19,6 +19,26 @@
   <tbody>
     <tr *ngFor="let heroe of listaHeroes">
       <td>{{heroe.id}}</td>
+      <td>{{heroe.nombre}}</td>
+      <td>{{heroe.universo}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Podemos conbinarlo con un if -->
+<h3>Combinando ngfor y ngif</h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>NOMBRE</th>
+      <th>UNIVERSO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let heroe of listaHeroes">
+      <td *ngIf="heroe.universo == 'DC'">{{heroe.id}}</td>
       <td>{{heroe.nombre}}</td>
       <td>{{heroe.universo}}</td>
     </tr>

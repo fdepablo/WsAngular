@@ -1,9 +1,23 @@
 <h1>Listado de Personas</h1>
-<!-- Podemos agragar componentes dentro del html de otros componentes -->
-<app-persona></app-persona>
+<!-- 
+    Mediante interpolación "{{VARIABLE}}"  podemos expandir atributos o llamar a metodos 
+    de las clases.
+    Dentro podemos poner tambien operaciones o expresiones
+-->
+<p>
+  Nombre: {{nombre}} 
+  Edad: {{edad}}
+  Peso en Kg: {{peso}}
+  Peso en libras: {{convertirPesoALibras()}}
+  Peso en Kg propuesto para verano (operacion bikini): {{peso - 5}}
+</p>
+
 <!--   
-  Aplicamos propertie binding para traer el valor del componente.. Asi ocultaremos
-  o deshabilitaremos el botón de manera programática.
+  Aplicamos propertie binding para traer el valor del componente.
+  Para aplicar PB, ponemos la propiedad entre corchetes y como valor, el nombre
+  de la propiedad del fichero .ts
+  
+  En este ejemplo, ocultaremos o deshabilitaremos el botón de manera programática.
 -->
 <button [disabled]='botonHabilitado' [style]='botonOculto'>Agregar Persona</button>
 <br/>
@@ -15,7 +29,8 @@
 <br/>
 
 <!--
-  Aplicammos two way binding, podemos actualizar desde el html al componente o a la inversa
+  Aplicammos two way binding, podemos actualizar desde el html al componente o a 
+  la inversa. Usaremos la directiva [(ngModel)] igualandola a una propiedad
 -->
 <h4>Inserta la profesión de la persona</h4>
 <input type="text" [(ngModel)]="profesion"/>

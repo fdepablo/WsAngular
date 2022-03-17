@@ -14,7 +14,9 @@ export class NgforComponent implements OnInit {
     {id: 34, universo:'MARVEL', nombre:'Ironman'},
   ];
 
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit() {
   }

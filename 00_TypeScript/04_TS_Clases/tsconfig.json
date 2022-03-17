@@ -1,5 +1,7 @@
 {
     "compilerOptions": {
-      "target": "es6"
+      "target": "es6",
+      "watch": true//Esta configuración sería para hacer el comando "tsc -w -p ." solamente
+                  //ejecutando el comando "tsc"
     }
 }

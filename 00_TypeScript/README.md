@@ -86,18 +86,29 @@ Que nos creara el fichero NOMBRE_FICHERO.js. Una vez creado podemos usarlo para 
 3. Tener abierto al mismo tiempo .ts y su correspondiente fichero .js puede dar error en VSC. Se recomiendo solamente abrir los ficheros .ts.
 
 4. Por defecto, el compilador de TS no utiliza las últimas versiones de JS como ETMAScript 5 o 6 (ES5 y ES6) por lo que tenemos que tenerlo en cuenta a la hora de compilar el codigo usando las caracteristicas más modernas de JS. Si queremos usar una versión especifica para compilar un fichero TS podemos hacerlo de 2 maneras:
-    - Con el comando <b>tsc -t esX FICHERO_TYPESCRIPT.ts</b>. Donde la "X" es la version del ETMAScript. Un ejemplo sería <b>tsc -t es6 fichero.ts</b> para ETMAScript 6.
-    - Creando un fichero de configuración llamado <b>tsconfig.json</b> y especificando ahi la versión de ES que utilizaremos. Dicho fichero se buscará automáticamente desde la carpeta raiz donde invoquemos el comando "tsc". <b>IMPORTANTE:</b> Cuando ejecutamos el compilador de TS mediante el fichero de configuración ya no debemos de poner el nombre del fichero o ficheros que queremos compilar, ya que por defecto buscará todos los ficheros .ts que haya para compilarlos a .js. De esta manera, solo poniendo el comando <b>tsc</b> en el directorio donde esté el fichero <b>tsconfig.json</b> sería suficiente. El fichero de configuración debe de tener al menos el siguiente json:
+    - Con el comando <b>tsc -t esX FICHERO_TYPESCRIPT.ts</b>. Donde la "X" es la version del ETMAScript. Un ejemplo para ETMAScript 6:
+
+                tsc -t es6 fichero.ts
+    
+    - Creando un fichero de configuración llamado <b>tsconfig.json</b> y especificando ahi la versión de ES que utilizaremos. Dicho fichero se buscará automáticamente desde la carpeta raiz donde invoquemos el comando "tsc". <b>IMPORTANTE:</b> Cuando ejecutamos el compilador de TS mediante el fichero de configuración ya **NO** debemos de poner el nombre del fichero o ficheros que queremos compilar, ya que por defecto buscará todos los ficheros .ts que haya para compilarlos a .js. De esta manera, solo poniendo el comando <b>tsc</b> en el directorio donde esté el fichero <b>tsconfig.json</b> sería suficiente. El fichero de configuración debe de tener al menos el siguiente json:
 
             {
                 "compilerOptions": {
-                "target": "es6"
+                    "target": "es6"
                 }
             }
 
         Donde "es6" sería la versión de TS que vamos a usar. Se puede tomar como ejemplo el fichero que está en <b>04_TS_Clases</b>, no será hasta este ejemplo cuando necesitemos la version 6 de ETMAScript.
 
-5. Existe una manera de estar compilando de manera automática todos los cambios de los ficheros .ts a ficheros .js (de manera parecida a lo que hace eclipse con los .java, que los convierte a .class sin que tengamos que usar el compilador). Para ello debemos abrir una terminal y ejecutar el comando <b>tsc -w -p .</p> (notese el "." del final), y cada vez que cambiemos un fichero .ts se creara automaticamente su fichero .js. Lo ideal será tener 2 terminales, una para compilar automáticamente y otra para ejecutar los ficheros .js. **IMPORTANTE** Para hacer esta practica debemos de tener el fichero <b>tsconfig.json</b> en el directorio donde ejecutemos el comando <b>tsc -w -p .</p>
+5. Existe una manera de estar compilando de manera automática todos los cambios de los ficheros .ts a ficheros .js (de manera parecida a lo que hace eclipse con los .java, que los convierte a .class sin que tengamos que usar el compilador). Para ello debemos abrir una terminal y ejecutar el comando <b>tsc -w -p .</p> (notese el "." del final), y cada vez que cambiemos un fichero .ts se creara automaticamente su fichero .js. Lo ideal será tener 2 terminales, una para compilar automáticamente y otra para ejecutar los ficheros .js. **IMPORTANTE** Para hacer esta practica debemos de tener el fichero <b>tsconfig.json</b> en el directorio donde ejecutemos el comando <b>tsc -w -p .</p>. 
+Otra opción sería meter esta funcionalidad dentro del fichero tsconfig.json con el atributo "watch"
+
+        {
+            "compilerOptions": {
+                "target": "es6",
+                "watch": true
+            }
+        }
 
 ## Bibliografía
 

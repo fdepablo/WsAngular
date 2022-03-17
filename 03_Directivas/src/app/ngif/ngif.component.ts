@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgifComponent implements OnInit {
 
-  mostrarTexto1 : boolean = false
+  mostrarTexto1 : boolean = true
   texto1 : string = "Bienvenidos a la directiva NGIF"
 
-  mostrarTexto2 : boolean = false
+  mostrarTexto2 : boolean = true
   texto2 : string = "Bienvenidos a la directiva NGIF con un ELSE"
 
   condicion: string  = "cadena1"

@@ -6,6 +6,12 @@ class Persona {
         this._nombre = "";
         this._edad = 0;
     }
+    get atributo() {
+        return this._atributo;
+    }
+    set atributo(value) {
+        this._atributo = value;
+    }
     get nombre() {
         return this._nombre;
     }
@@ -43,6 +49,7 @@ let persona2 = new Persona();
 //Los tipos de las referencias siempre serán "object"
 console.log("El tipo de la variable es: " + typeof (persona1));
 //Podemos cambiar el estado de un objeto mediante su set
+//OJO! no se pone persona1.nombre("Steve Rogers")
 persona1.nombre = "Steve Rogers";
 persona1.edad = 45;
 persona2.nombre = "Tony Stark";
@@ -94,7 +101,7 @@ let pelicula = new Pelicula("La vida de Brian", "Terry Jones");
 pelicula.titulo = "Los caballeros de la mesa cuadrada";
 console.log(pelicula.titulo);
 //Herencia
-console.log("HERENCIA");
+console.log("** HERENCIA **");
 class Empleado extends Persona {
     constructor() {
         //En el caso de herencia, debemos primero llamar al constructor padre mediante "super"

@@ -7,20 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoPersonasComponent implements OnInit {
 
-  botonHabilitado = false
-  botonOculto = "display:block"//block para mostrar, none para ocultar
+  /* PROPIEDADES */
+  nombre: string;
+  edad: number;
+  peso: number;//En kg
+
+  /* PROPIEDADES PB*/
+  botonHabilitado = true
+  botonOculto = "display:none"//block para mostrar, none para ocultar
+  
+  /* PROPIEDADES TWB*/
   profesion = "ingeniero"
 
-  constructor() { }
+  constructor() { 
+    this.nombre = "Steve Rogers"
+    this.edad = 40
+    this.peso = 95
+  }
 
   ngOnInit() {
   }
 
-  cambiarEstadoHabilitado(){
+  public convertirPesoALibras() : number{
+    let libras = this.peso * 2.2046
+    return libras
+  }
+
+  public cambiarEstadoHabilitado(){
     this.botonHabilitado = !this.botonHabilitado;
   }
 
-  cambiarEstadoOculto(){
+  public cambiarEstadoOculto(){
     if(this.botonOculto == "display:block"){
       this.botonOculto = "display:none"
     }else{

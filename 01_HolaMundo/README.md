@@ -14,6 +14,7 @@ Este proyecto ha sido creado mediante el CLI de angular con el comando <b>ng new
 3. La carpeta <b>src</b> es la carpeta más importante de nuestra app, ya que sobre esta será donde trabajemos en el desarrollo de la misma. Aquí podemos encontrar diferentes subcarpetas y ficheros:
 
     - index.html, será la página inicial de nuestra app
+    - styles.css, los estilos globales a toda nuestra app
     - assets, donde podemos poner los ficheros que queremos que sean visibles a los usuarios (imagenes, .txt, etc)
     - app, será la carpeta donde trabajaremos con nuestros primer componente. Raíz de todos los demás componentes que creemos.
 

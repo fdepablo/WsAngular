@@ -26,7 +26,7 @@ function sumarConValorOpcional(a: number, b:number, c?: number): number {
     }*/
     //Tambien podemos usar el operador "??", que en caso de que el valor a la izquierda
     //del operador NO sea "undefined" entonces tomará dicho valor, en caso contrario
-    //tomará el valor de la izquierda
+    //tomará el valor de la derecha
     c = c ?? 0
     let resultado = a + b + c;
     return resultado;
@@ -51,6 +51,10 @@ console.log(sumarParametrosVariables(1,2))
 console.log(sumarParametrosVariables(1,2,3,4,5))
 console.log(sumarParametrosVariables())
 
+//Funciones con parametros optativos y por defecto
+//Si al llamar a la funcion no le pasamos el valor del segundo 
+//parametro, entonces tomará el valor que este indicado en la
+//función.
 function concatenarNombre(a: string, b:string = "of Duty"): string{
     return a + " " + b;
 }

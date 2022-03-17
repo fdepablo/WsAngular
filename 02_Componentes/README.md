@@ -6,9 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Los componentes en Angular forman la estructura de datos (bloques) de las aplicaciones.
 
-Cada aplicación de Angular tiene al menos un componente, el componente raíz que conecta una jerarquía de componentes con el modelo de objetos del documento de la página (DOM). Cada componente define una clase que contiene datos y lógica de la aplicación, y está asociado con una plantilla HTML que define una vista que se mostrará en un entorno de destino.
+Cada aplicación de Angular tiene al menos un componente, el componente raíz (app) que conecta una jerarquía de componentes con el modelo de objetos del documento de la página (DOM). Cada componente define una clase que contiene datos y lógica de la aplicación, y está asociado tanto con una plantilla HTML que define una vista, como con un fichero CSS que tiene los estilos.
 
-El decorador @Component() identifica la clase inmediatamente debajo de ella como un componente, y proporciona la plantilla y los metadatos específicos del componente relacionado. 
+El decorador **@Component()** identifica la clase inmediatamente debajo de ella como un componente, y proporciona la plantilla y los metadatos específicos del componente relacionado. 
 
 Los decoradores son funciones que modifican las clases de JavaScript. Angular define una serie de decoradores que adjuntan tipos específicos de metadatos a las clases, para que el sistema sepa qué significan esas clases y cómo deberían funcionar.
 
@@ -25,7 +25,7 @@ Los componentes se encuentran debajo de la carpeta **app** y se componen de los 
 1. **NOMBRE.component.css**. Los estilos del componente en CSS
 1. **NOMBRE.component.html**. La estructura del componente en HTML
 1. **NOMBRE.component.specs.ts**. Fichero para pruebas unitarias
-1. **NOMBRE.component.ts**. La declaración del componente, donde se declara la clase y el decorador @Component. Lleva toda la lógica del componente.
+1. **NOMBRE.component.ts**. La declaración del componente, donde se declara la clase y el decorador @Component. Lleva toda la lógica del componente y haría funciones de controlador dentro del MVC del cliente.
 
 ## Creación de un componente
 
@@ -49,7 +49,6 @@ Para borrar un componente en angular debemos de hacerlo a mano, para ello:
 En este ejemplo se van a crear los siguientes componentes
 
 - listado-personas
-- persona
 - cabecera
 - pie-de-pagina
 
@@ -81,4 +80,4 @@ Mediante el TWB podemos enviar información desde el HTML hacia los componentes 
 
 Para ello primero debemos de configurar nuestro **app.module.ts** para importar un nuevo módulo a nuestro proyecto. Dentro del fichero debemos de importar el módulo **FormsModule** dentro del decorador **NgModule**.
 
-Una vez configurado podemos empezar a aplicar el concepto de TWB como una mezcla de los dos anteriores, para ello debemos de usar una combinación de los anteriores operadores **[(ngModel)]**
+Una vez configurado, podemos empezar a aplicar el concepto de TWB como una mezcla de los dos anteriores, para ello debemos de usar la directiva **[(ngModel)]**

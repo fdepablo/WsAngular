@@ -11,3 +11,11 @@ table,tr,td{
     color : red;
     background-color: sandybrown;
 }
+
+.impar{
+    background-color: aqua;
+}
+
+.par{
+    background-color: burlywood;
+}

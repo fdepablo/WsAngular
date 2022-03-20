@@ -6,7 +6,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Los componentes en Angular forman la estructura de datos (bloques) de las aplicaciones.
 
-Cada aplicación de Angular tiene al menos un componente, el componente raíz (app) que conecta una jerarquía de componentes con el modelo de objetos del documento de la página (DOM). Cada componente define una clase que contiene datos y lógica de la aplicación, y está asociado tanto con una plantilla HTML que define una vista, como con un fichero CSS que tiene los estilos.
+Los **componentes** son elementos reutilizables que esta compuesto por:
+
+1. Un archivo que será nuestra plantilla, ejemplo **app.component.html** (HTML), es decir, la vista o en términos más simples lo que vas a ver en la página.
+2. Un archivo para el CSS, donde incluiremos los estilos. Ejemplo **app.component.css**.
+3. Un archivo de lógica, la cual es la que pondremos en un archivo .ts, ejemplo **app.component.ts**. En este archivo se definiran los dos archivos anteriores que se van a usar (HTML y CSS), y además llevará toda la funcionalidad de la página.
+
+Además, los **componentes** tienen las siguientes propiedades:
+
+1. Los componentes definen vistas, es decir, son un conjunto de elementos que se mostrarán en el navegador y que Angular puede modificar de acuerdo a la lógica y a los datos.
+
+2. Los componentes usan servicios, que proporcionan una funcionalidad que no está directamente relacionada con las vistas. Los servicios son los que se conectan con los servidores para acceder a la información (como puede ser un servicio REST).
 
 El decorador **@Component()** identifica la clase inmediatamente debajo de ella como un componente, y proporciona la plantilla y los metadatos específicos del componente relacionado. 
 

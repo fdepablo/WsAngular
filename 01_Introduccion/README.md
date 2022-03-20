@@ -1,25 +1,17 @@
 
-# Conceptos Angular
-
-## Introducción
+# Conceptos de Angular
 
 Dentro de una aplicación Angular podemos encontrar ciertos conceptos fundamentales. La construcción básica de Angular son los **componentes** que están organizados dentro **modulos** de Angular o **NgModules**. Una aplicación Angular esta definida como un conjunto de módulos y tiene que tener al menos una módulo raiz, llamado **AppModule**.
 
 Normalmente una aplicación Angular importa varios módulos para proporcionar nuevas funcionalidades, por ejemplo, para trabajar con formularios es muy tipico importar el módulo **FormModule**.
 
-Los **componentes** son elementos reutilizables que esta compuesto por:
+Los **componentes se definen en clases** que contiene datos y lógica de la aplicación. Además, estas clases tendrán asociadas una plantilla HTML (estructura) y un fichero CSS (estilos).
 
-1. Un archivo que será nuestra plantilla, ejemplo **app.component.html** (HTML), es decir, la vista o en términos más simples lo que vas a ver en la página.
-2. Un archivo para el CSS, donde incluiremos los estilos. Ejemplo **app.component.css**.
-3. Un archivo de lógica, la cual es la que pondremos en un archivo .ts, ejemplo **app.component.ts**. En este archivo se definiran los dos archivos anteriores que se van a usar (HTML y CSS), y además llevará toda la funcionalidad de la página.
+Un componente en angular se crea mediante el decorador **@Component**. Los decoradores son funciones que modifican el comportamiento de las clases de JavaScript.
 
-Además, los **componentes** tienen las siguientes propiedades:
+Por otra parte, podemos encontrar otros elementos como los **servicios**, cuya función es la de proporcionar datos de los servidores a nuestros componentes.
 
-1. Los componentes definen vistas, es decir, son un conjunto de elementos que se mostrarán en el navegador y que Angular puede modificar de acuerdo a la lógica y a los datos.
-
-2. Los componentes usan servicios, que proporcionan una funcionalidad que no está directamente relacionada con las vistas. Los servicios son los que se conectan con los servidores para acceder a la información (como puede ser un servicio REST).
-
-Un componente en angular se crea mediante una clase con el decorador **@Component**. Los decoradores son funciones que modifican el comportamiento de las clases de JavaScript.
+Hablaremos de estos temas con más profundidad más adelante.
 
 ## Creación de un proyecto Angular
 

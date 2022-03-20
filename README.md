@@ -103,7 +103,7 @@ También podemos ver información sobre Angular (Últimas versiones, distribuci�
 
 Para crear una aplicación debemos ejecuta el comando CLI <b>ng new</b> y proporciona el nombre que desees. 
 
-    ng new 01_HolaMundo
+    ng new NOMBRE_PROYECTO_ANGULAR
 
 El comando <b>ng new</b> solicitará información sobre las funciones que debe incluir en la aplicación inicial. Aceptaremos los valores predeterminados presionando la tecla “Enter” y escribiendo "y" cuando nos lo pregunte.
 
@@ -117,7 +117,7 @@ Para borrar una aplicación en Angular basta con borrar la carpeta que se creo c
 
 La CLI de Angular incluye un servidor, de modo que puede crear y servir la aplicación localmente.
 
-Para arrancar la aplicación creada, podemos ejecutar el siguiente comando en nuestro espacio de trabajo (Ej: la carpeta 01_HolaMundo).
+Para arrancar la aplicación creada, podemos ejecutar el siguiente comando en nuestro espacio de trabajo (Ej: la carpeta 01_Introduccion).
 
     ng serve -o
 

@@ -26,7 +26,7 @@ export es para poder utililzar esta clase en otros ambitos del proyecto
 export class AppComponent {
   //Dentro de la clase podemos definir atributos, que podrán ser utilizas en la
   //página HTML asociada
-  titulo = '01_HolaMundo';
+  titulo = '01_Introduccion';
 
   //Podemos crear varios atributos para que sean usados en nuestra página
   //nótese como en TS podemos tipar las variables o atributos

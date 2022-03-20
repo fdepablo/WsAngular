@@ -1,10 +1,35 @@
-# Primer proyecto angular
 
-Este proyecto ha sido creado mediante el CLI de angular con el comando <b>ng new 01_HolaMundo</b>
+# Conceptos Angular
+
+## Introducción
+
+Dentro de una aplicación Angular podemos encontrar ciertos conceptos fundamentales. La construcción básica de Angular son los **componentes** que están organizados dentro **modulos** de Angular o **NgModules**. Una aplicación Angular esta definida como un conjunto de módulos y tiene que tener al menos una módulo raiz, llamado **AppModule**.
+
+Normalmente una aplicación Angular importa varios módulos para proporcionar nuevas funcionalidades, por ejemplo, para trabajar con formularios es muy tipico importar el módulo **FormModule**.
+
+Los **componentes** son elementos reutilizables que esta compuesto por:
+
+1. Un archivo que será nuestra plantilla, ejemplo **app.component.html** (HTML), es decir, la vista o en términos más simples lo que vas a ver en la página.
+2. Un archivo para el CSS, donde incluiremos los estilos. Ejemplo **app.component.css**.
+3. Un archivo de lógica, la cual es la que pondremos en un archivo .ts, ejemplo **app.component.ts**. En este archivo se definiran los dos archivos anteriores que se van a usar (HTML y CSS), y además llevará toda la funcionalidad de la página.
+
+Además, los **componentes** tienen las siguientes propiedades:
+
+1. Los componentes definen vistas, es decir, son un conjunto de elementos que se mostrarán en el navegador y que Angular puede modificar de acuerdo a la lógica y a los datos.
+
+2. Los componentes usan servicios, que proporcionan una funcionalidad que no está directamente relacionada con las vistas. Los servicios son los que se conectan con los servidores para acceder a la información (como puede ser un servicio REST).
+
+Un componente en angular se crea mediante una clase con el decorador **@Component**. Los decoradores son funciones que modifican el comportamiento de las clases de JavaScript.
+
+## Creación de un proyecto Angular
+
+Este proyecto ha sido creado mediante el CLI de angular con el comando:
+
+    ng new 01_Introduccion
 
 ## Composición de un proyecto Angular
 
-1. Todos los ficheros creados en la raíz del proyecto pertenecen a la configuración general de un proyecto angular. Dichos ficheros no se usan cuando desplegamos la aplicación en un servidor. Los más importantes:
+1. Todos los ficheros creados en la raíz del proyecto pertenecen a la configuración general de un proyecto angular. Los más importantes:
 
     - <b>angular.json</b>, donde está la mayor parte de nuestra configuración del proyecto Angular
     - <b>package.json</b>, donde están declarados comandos y versiones de Angular.
@@ -26,7 +51,7 @@ Este proyecto ha sido creado mediante el CLI de angular con el comando <b>ng new
 
 Además, en este repositorio, no tenemos versionada la carpeta **node_modules** por el espacio que ocupa y porque no aporta nada al código (ver fichero .gitignore), por lo que cuando descarguemos este workspace debemos de generar la carpeta **node_modules** a partir de un proyecto y copiarla dentro de **WsAngular**.
 
-Para generar la carpeta <b>node_modules</b> debemos ejecutar sobre la raiz de un proyecto (por ejemplo 01_HolaMundo) el siguiente comando:
+Para generar la carpeta <b>node_modules</b> debemos ejecutar sobre la raiz de un proyecto (por ejemplo 01_Introduccion) el siguiente comando:
 
     npm install
 
@@ -45,3 +70,7 @@ En este caso vamos a ir al fichero <b>app.component.html</b> dentro de la carpet
 Al recargar el navegador deberemos de observar los cambios.
 
 Si nos vamos al fichero <b>index.html</b> podemos ver que hay una etiqueta que se llama <b>app-root</b>, esta etiqueta hace mención a dicho componente, que está definido en el fichero <b>app.component.ts</b>. En dicho fichero definiremos nuestro componente que podemos cambiar a nuestro antojo.
+
+## Bibliografia
+
+- <https://angular.io/guide/architecture>

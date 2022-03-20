@@ -109,7 +109,7 @@ El comando <b>ng new</b> solicitará información sobre las funciones que debe i
 
 La CLI de Angular instala los paquetes **npm** de Angular necesarios y otras dependencias. Esto puede tardar unos minutos. La CLI crea un nuevo espacio de trabajo y una aplicación de bienvenida simple, lista para ejecutarse.
 
-La CLI creara una carpeta con el nombre del proyecto que será nuestro espacio de trabajo.
+La CLI creara una carpeta con el nombre del proyecto que será nuestro **espacio de trabajo**.
 
 Para borrar una aplicación en Angular basta con borrar la carpeta que se creo con el comando <b>ng new</b>
 

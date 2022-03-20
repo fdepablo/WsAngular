@@ -66,7 +66,13 @@ En este ejemplo se van a crear los siguientes componentes
 
 Una vez creados los componentes, los debemos de incluir en el fichero **app.component.html** dentro de la carpeta **app**. En este fichero podremos colocar los componentes como queramos, aplicando las reglas de estilo que estimemos.
 
-## Property Binding (PB)
+## Plantillas y Data Binding
+
+Dentro de una plantilla de Angular (HTML) podemos modificar elementos HTML antes de que sean mostrados. Mediante el **Data Binding** podemos contectar los datos de nuestra aplicación con el arbol DOM de nuestras plantillas.
+
+Dentro del Data Binding podemos encontrar **Property Binding, Event Binding y Two Way Binding**
+
+### Property Binding (PB)
 
 PB en Angular nos ayuda a enlazar valores a propiedades de elementos HTML o a directivas, y de esta manera, poder cambiar valores de manera dinámica. Algunos ejemplos pueden ser habilitar o deshabilitar botones o poner rutas a nivel programático.
 
@@ -78,13 +84,13 @@ Para enlazar a una propiedad de un elemento, envolvemos la propiedad con corchet
 
 En este caso estamos diciendo que la propiedad **src** la vamos a obtener de una propiedad llamada **urlImagen** del componente.
 
-## Event Binding (EB)
+### Event Binding (EB)
 
 Mediante EB podemos escuchar los eventos de nuestro HTML.
 
 Si trabajamos con JS los nombres de los eventos empiezan **con la palabra on** como puede ser **onclick**, en Angular si queremos hacer EV, los eventos deben empezar **sin la palabra on** y entre parentesis, como puede ser **(click)**. Una vez declarado el EV lo igualaremos al método del componente que queramos.
 
-## Two Way Binding (TWB)
+### Two Way Binding (TWB)
 
 Mediante el TWB podemos enviar información desde el HTML hacia los componentes y viceversa. Es una combinación de las dos anteriores y muy útil para trabajar con formularios.
 

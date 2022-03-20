@@ -13,9 +13,9 @@ Por otra parte, podemos encontrar otros elementos como los **servicios**, cuya f
 
 Hablaremos de estos temas con más profundidad más adelante.
 
-## Creación de un proyecto Angular
+## Creación de este proyecto
 
-Este proyecto ha sido creado mediante el CLI de angular con el comando:
+Este proyecto ha sido creado mediante la CLI de angular con el comando:
 
     ng new 01_Introduccion
 
@@ -25,6 +25,7 @@ Este proyecto ha sido creado mediante el CLI de angular con el comando:
 
     - <b>angular.json</b>, donde está la mayor parte de nuestra configuración del proyecto Angular
     - <b>package.json</b>, donde están declarados comandos y versiones de Angular.
+    - <b>tsconfig.json</b>, donde están declaradas la configuración de TS.
 
 2. Los directorios que empiezan por <b>.</b> (punto) son ficheros ocultos que son usados principalmente por el IDE o el framework de Angular. No tienen importancia a la hora de desarrollar.
 
@@ -33,7 +34,7 @@ Este proyecto ha sido creado mediante el CLI de angular con el comando:
     - index.html, será la página inicial de nuestra app
     - styles.css, los estilos globales a toda nuestra app
     - assets, donde podemos poner los ficheros que queremos que sean visibles a los usuarios (imagenes, .txt, etc)
-    - app, será la carpeta donde trabajaremos con nuestros primer componente. Raíz de todos los demás componentes que creemos.
+    - app, será la carpeta donde trabajaremos con nuestros componentes. Raíz de todos los demás componentes que creemos.
 
 4. La carpeta <b>node_modules</b> contiene las librerias que nos permiten ejecutar las app de angular. Dicha carpeta tampoco será útil a la hora de desplegar una app en un servidor, solo es útil en desarrollo.
 
@@ -57,11 +58,11 @@ Sobre la raíz del proyecto ejecutaremos el comando <b>ng serve -o</b>. Una vez 
 
 En este caso vamos a ir al fichero <b>app.component.html</b> dentro de la carpeta <b>app</b> y dejaremos solo la siguiente línea
 
-    <span>Mi primera APP en angular se llama {{ title }}</span>
+    <span>Mi primera APP en angular se llama 01_Inroducción</span>
 
 Al recargar el navegador deberemos de observar los cambios.
 
-Si nos vamos al fichero <b>index.html</b> podemos ver que hay una etiqueta que se llama <b>app-root</b>, esta etiqueta hace mención a dicho componente, que está definido en el fichero <b>app.component.ts</b>. En dicho fichero definiremos nuestro componente que podemos cambiar a nuestro antojo.
+Si nos vamos al fichero <b>index.html</b> podemos ver que hay una etiqueta que se llama <b>app-root</b>, esta etiqueta hace mención a dicho componente, que está definido en el fichero <b>app.component.ts</b>. 
 
 ## Bibliografia
 

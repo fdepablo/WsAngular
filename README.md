@@ -6,13 +6,13 @@
 
 ## Prerrequisitos
 
-Para trabajar con Angular hay que tener conocimiento de las siguientes tecnologías:
+Para trabajar con Angular se deben de tener conocimiento de las siguientes tecnologías:
 
 1. Conocimientos en **JavaScript**
 2. Conocimientos en **HTML**
 3. Conocimientos en **CSS**
 
-Es recomendable tener conocimientos en **TypeScript**, aunque no es obligatorio.
+También sería recomendable tener conocimientos en **TypeScript**, aunque no es obligatorio. 
 
 ## Herramientas para trabajar con Angular
 
@@ -31,7 +31,7 @@ Para comprobar que NodeJs se ha instalado adecuadamente podemos ejecutar en la c
 
 El lenguaje que utiliza Angular es TypeScript (TS) por lo que también lo deberemos de tener instalado. Existen varias maneras de instalar TS, nosotros usaremos el gestor de paquetes <b>npm</b> que viene incluido en <b>NodeJs</b>.
 
-TS es un superconjunto de JS, por lo que estrictamente hablando no es necesario tener conocimientos en TS para programar en Angular.
+TS es un superconjunto de JS, y cuando se compila, se convierte en código JS. Una de las diferencias fundamentales con JS es que TS es un lenguaje que admite tipado de las variables.
 
 ### NPM
 

@@ -54,6 +54,8 @@ export class HeroesComponent implements OnInit {
    */
   public hayErroresEnFormulario():boolean{
     let error : boolean = false
+    this.ocultarMensajesError()
+
     if(this.nombre.trim().length==0){
       this.nombreObligatorioOculto = false
       error = true

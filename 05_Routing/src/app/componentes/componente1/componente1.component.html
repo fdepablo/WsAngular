@@ -11,9 +11,10 @@
 
 
 <!-- Mostrando los valores pasados por queryParams-->
-<div>
-  {{parametroQuery1}} {{parametroQuery2}}
+<div class="rojo" *ngIf="mostrar">
+  {{parametroQuery1}} - {{parametroQuery2}}
 </div>
+<br/>
 
 <!-- Routing o navegación declarativa desde la vista -->
 <div>

@@ -32,9 +32,9 @@ Por otro lado, tendremos la etiqueta **router-outlet**, de gran importancia en n
 
 En esta etiqueta es donde se mostrarán los componentes que hemos declarado en el array **routes** y en nuestra aplicación.
 
-Si queremos que el contenido de un **router-outlet** cambie con la pulsación de un enlace o un botón le añadimos el atributo **routerLink** e indicamos la ruta (path) asociado al componente que queremos mostrar. Ojo! ¡Estos enlaces no tienen HREF!, si le ponemos un href, el enlace navegará realmente a ese sitio y ya no será una aplicación SPA.
+Si queremos que el contenido de un **router-outlet** cambie con la pulsación de un enlace o un botón le añadimos el atributo **routerLink** e indicamos la ruta (path) asociado al componente que queremos mostrar. Ojo! ¡Estos enlaces no tienen HREF!, si le ponemos un href la página entera cambiará y ya no será una aplicación SPA.
 
-    <button routerLink="/componente1">Ir a Componente 1</button>
+    <button routerLink="/ruta1">Ir a Componente 1</button>
 
 Existen otras maneras de establecer el **routerLink**, como mandar información o de manera programática que se verán en los ejemplos.
 

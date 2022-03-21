@@ -13,6 +13,7 @@ export class Componente1Component implements OnInit {
 
   parametroQuery1: string = ''
   parametroQuery2: string = ''
+  mostrar = false
 
   //INYECCIÓN DE DEPENDENCIAS EN ANGULAR
   //Cuando nosotros no creamos un objeto y le pedimos a un tercero (Angular) que nos lo cree
@@ -22,9 +23,11 @@ export class Componente1Component implements OnInit {
   
   //En este caso, le solicitaremos un objeto de tipo ActivatedRoute, que es una clase 
   //cuyas instancias representan a la ruta presente en la barra de navegación
+  //Basicamente se usa para recoger parámetros que nos envian otros componentes
 
   constructor(route:ActivatedRoute) { 
     console.log("Creando Componente1")
+    console.log(`nombre: ${this.nombre}`)
 
     //Accedemos a los valores contenidos en la ruta por el nombre que declaramos
     //ruta.snapshot.params['dato'], siendo "dato" el identificador que hemos declarado
@@ -37,6 +40,13 @@ export class Componente1Component implements OnInit {
     //pero usando "queryParams"
     this.parametroQuery1 = route.snapshot.queryParams["parametro1"]
     this.parametroQuery2 = route.snapshot.queryParams["parametro2"]
+    console.log(this.parametroQuery1)
+
+    //Solo mostramos el div con los query params en caso de que me llegue información
+    //por dichos query params
+    if(this.parametroQuery1 != null){
+      this.mostrar = true
+    }
   }
 
   ngOnInit() {

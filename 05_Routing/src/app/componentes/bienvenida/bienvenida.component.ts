@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class BienvenidaComponent implements OnInit {
 
   nombre : string = 'Natasha'
-  universo : string = 'Romanoff'
+  universo : string = 'marvel'
 
   //Para hacer routas programáticas debemos de usar el objeto "router"
   //Le pedimos a Angular que nos lo inyecte cuando cree este componente

@@ -5,10 +5,12 @@ import { Componente1Component } from './componentes/componente1/componente1.comp
 
 /*
 Este fichero es donde configuraremos las rutas de la aplicación.
+
+const routes: Routes = [];
 */
 const routes: Routes = [
   {
-    path : '', //En este caso decimos el componente que mostraremos de base
+    path : '', //En este caso decimos el componente que mostraremos por defecto
     component : BienvenidaComponent
   },
   {
@@ -16,6 +18,7 @@ const routes: Routes = [
     component : Componente1Component
   },
   {path : 'bienvenida', component : BienvenidaComponent},
+  //aqui estamos pasando parametros en el pahtparam, eje: componente1/spiderman/marvel
   {path : 'componente1/:nombre/:universo', component : Componente1Component},
 ];
 

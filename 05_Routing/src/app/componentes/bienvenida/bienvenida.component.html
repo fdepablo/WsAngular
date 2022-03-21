@@ -24,6 +24,7 @@
 <hr/>
 <!--
 Navegación declarativa pasando parámetros de manera dinámica, usaremos la directiva [routerLink]
+en conbinación con Two Way Binding de los formularios
 -->
 <div>
   <span>Nombre: </span>
@@ -45,7 +46,7 @@ crear un método que realice la lógica y llamarlo desde la plantilla
   <button (click)="routingProgramatico()">Componente 1</button>
 </div>
 
-<!-- Parametros de Query, usaremos  -->
+<!-- Parametros de Query, usaremos la directiva [queryParams] -->
 <div>
   <span>Pasando valores desde la vista mediante parametros de query: </span>
   <button [routerLink]="[ '/componente1']" 

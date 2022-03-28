@@ -1,11 +1,11 @@
 <h1>Listado de Personas</h1>
 <!-- 
-    Mediante interpolación "{{VARIABLE}}"  podemos expandir atributos o llamar a metodos 
+    Mediante interpolación "{{ATRIBUTO O METODO}}" podemos expandir atributos o llamar a metodos 
     de las clases.
     Dentro podemos poner tambien operaciones o expresiones
 -->
-<p>
-  Nombre: {{nombre}} 
+<p id="1">
+  Nombre: {{nombre}}
   Edad: {{edad}}
   Peso en Kg: {{peso}}
   Peso en libras: {{convertirPesoALibras()}}
@@ -13,13 +13,13 @@
 </p>
 
 <!--   
-  Aplicamos propertie binding para traer el valor del componente.
+  Aplicamos property binding para traer el valor del componente.
   Para aplicar PB, ponemos la propiedad entre corchetes y como valor, el nombre
   de la propiedad del fichero .ts
   
   En este ejemplo, ocultaremos o deshabilitaremos el botón de manera programática.
 -->
-<button [disabled]='botonHabilitado' [style]='botonOculto'>Agregar Persona</button>
+<button [disabled]='botonDeshabilitado' [style]='botonOculto'>Agregar Persona</button>
 <br/>
 <!--  
   Aplicaremos también event binding, para recoger los eventos en el componente

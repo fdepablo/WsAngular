@@ -74,9 +74,9 @@ Dentro del Data Binding podemos encontrar **Property Binding, Event Binding y Tw
 
 ### Property Binding (PB)
 
-PB en Angular nos ayuda a enlazar valores a propiedades de elementos HTML o a directivas, y de esta manera, poder cambiar valores de manera dinámica. Algunos ejemplos pueden ser habilitar o deshabilitar botones o poner rutas a nivel programático.
+PB en Angular nos ayuda a enlazar valores a propiedades de elementos HTML o a directivas (que veremos más adelante), y de esta manera, poder cambiar valores de manera dinámica. Algunos ejemplos pueden ser habilitar o deshabilitar botones o poner rutas a nivel programático.
 
-PB ayudan a mover valores en una dirección, desde la propiedad de un componente hasta la propiedad del elemento (por ejemplo HTML).
+PB ayuda a mover valores en una dirección, desde la propiedad de un componente hasta la propiedad del elemento HTML (por ejemplo).
 
 Para enlazar a una propiedad de un elemento, envolvemos la propiedad con corchetes **[]**, de esta manera identificamos dicha propiedad como "target property". Ejemplo en HTML:
 
@@ -88,12 +88,16 @@ En este caso estamos diciendo que la propiedad **src** la vamos a obtener de una
 
 Mediante EB podemos escuchar los eventos de nuestro HTML.
 
-Si trabajamos con JS los nombres de los eventos empiezan **con la palabra on** como puede ser **onclick**, en Angular si queremos hacer EV, los eventos deben empezar **sin la palabra on** y entre parentesis, como puede ser **(click)**. Una vez declarado el EV lo igualaremos al método del componente que queramos.
+Si trabajamos con JS los nombres de los eventos empiezan **con la palabra on** como puede ser **onclick**, en Angular si queremos hacer EB, los eventos deben empezar **sin la palabra on** y entre parentesis, como puede ser **(click)**. Una vez declarado el EB lo igualaremos al método del componente que queramos.
+
+    <button (click)="metodo()">Boton</button>
 
 ### Two Way Binding (TWB)
 
-Mediante el TWB podemos enviar información desde el HTML hacia los componentes y viceversa. Es una combinación de las dos anteriores y muy útil para trabajar con formularios.
+Mediante el TWB podemos enviar información desde el HTML hacia las propiedades de los componentes y viceversa. Es muy útil para trabajar con formularios.
 
 Para ello primero debemos de configurar nuestro **app.module.ts** para importar un nuevo módulo a nuestro proyecto. Dentro del fichero debemos de importar el módulo **FormsModule** dentro del decorador **NgModule**.
 
-Una vez configurado, podemos empezar a aplicar el concepto de TWB como una mezcla de los dos anteriores, para ello debemos de usar la directiva **[(ngModel)]**
+Una vez configurado, podemos empezar a aplicar el concepto de TWB con la directiva **[(ngModel)]**
+
+    <input type="text" [(ngModel)]="propiedad"/>

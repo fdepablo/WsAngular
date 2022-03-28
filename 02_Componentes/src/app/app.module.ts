@@ -9,7 +9,7 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
 import { PieDePaginaComponent } from './pie-de-pagina/pie-de-pagina.component';
 
 @NgModule({
-  declarations: [					
+  declarations: [						
     AppComponent,
       ListadoPersonasComponent,
       CabeceraComponent,

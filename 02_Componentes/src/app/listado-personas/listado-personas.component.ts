@@ -13,11 +13,11 @@ export class ListadoPersonasComponent implements OnInit {
   peso: number;//En kg
 
   /* PROPIEDADES PB*/
-  botonHabilitado = true
-  botonOculto = "display:none"//block para mostrar, none para ocultar
+  botonDeshabilitado = false
+  botonOculto = "display:block"//block para mostrar, none para ocultar
   
   /* PROPIEDADES TWB*/
-  profesion = "ingeniero"
+  profesion = "arquitecto"
 
   constructor() { 
     this.nombre = "Steve Rogers"
@@ -33,15 +33,16 @@ export class ListadoPersonasComponent implements OnInit {
     return libras
   }
 
-  public cambiarEstadoHabilitado(){
-    this.botonHabilitado = !this.botonHabilitado;
+  //Event Binding
+  public cambiarEstadoHabilitado() : void{
+    this.botonDeshabilitado = !this.botonDeshabilitado;
   }
 
   public cambiarEstadoOculto(){
     if(this.botonOculto == "display:block"){
-      this.botonOculto = "display:none"
+      this.botonOculto = "display:none"//ocultar
     }else{
-      this.botonOculto = "display:block"
+      this.botonOculto = "display:block"//mostrar
     }
   }
 }

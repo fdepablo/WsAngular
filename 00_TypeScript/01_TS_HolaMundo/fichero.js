@@ -7,9 +7,15 @@ comentarios
 var saludo = 'Hola Mundo!';
 //Los puntos y comas finales son optativos
 console.log(saludo);
-//Creamos un nodo H1
-var cabecera = document.createElement('H1');
+//Creamos un nodo elemento H1
+var cabeceraH1 = document.createElement('H1');
 //Añadimos el texto al H1 (Tambien podemos crear el nodo texto y añadirlo)
-cabecera.textContent = saludo;
-//Añadirmos la cabecera a la pagina web
-document.body.appendChild(cabecera);
+cabeceraH1.textContent = saludo;
+//<h1>Hola Mundo!</h1>
+//Añadirmos la cabeceraH1 a la pagina web
+document.body.appendChild(cabeceraH1);
+/*
+<body>
+    <h1>Hola Mundo!</h1>
+</body>
+*/ 

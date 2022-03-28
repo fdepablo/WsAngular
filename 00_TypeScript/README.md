@@ -44,26 +44,26 @@ Los lenguajes tipados tienen ventajas, entre ellas mejorar la productividad evit
 
 Imaginemonos la siguiente función de sumar dos numeros hecha en JS.
 
-    function add(x, y) {
+    function sumar(x, y) {
         return x + y;
     }
 
 y la llamamos de la siguiente manera
 
-    let result = add(input1.value, input2.value);
+    let result = sumar(input1.value, input2.value);
     console.log(result); // Mostrariamos el resultado de concatenar dos String
 
 Si los valores de input1 e input2 fueran 10 y 20 respectivamente, mostraríamos por consola <b>1020</b> en lugar de <b>30</b> ya que los valores de los campos son siempre String, así pues, al usar el operador <b>+</b> concatenamos en lugar de sumar.
 
 TypeScript al ser un lenguaje tipado declarariamos la función de la siguiente manera
 
-    function add(x: number, y: number) {
+    function sumar(x: number, y: number) {
         return x + y;
     }
 
 Por lo que al al llamar a la función de la siguiente manera
 
-    let result = add(input1.value, input2.value);
+    let result = sumar(input1.value, input2.value);
 
 Nos daria un **error en tiempo de compilación**, ya que la función espera que sean números y nosotros le estamos pasando cadenas (String). TS puede ayudar a prevenir errores en tiempo de compilación.
 
@@ -85,7 +85,7 @@ Que nos creara el fichero NOMBRE_FICHERO.js. Una vez creado podemos usarlo para 
 
 3. Tener abierto al mismo tiempo .ts y su correspondiente fichero .js puede dar error en VSC. Se recomiendo solamente abrir los ficheros .ts.
 
-4. Por defecto, el compilador de TS no utiliza las últimas versiones de JS como ETMAScript 5 o 6 (ES5 y ES6) por lo que tenemos que tenerlo en cuenta a la hora de compilar el codigo usando las caracteristicas más modernas de JS. Si queremos usar una versión especifica para compilar un fichero TS podemos hacerlo de 2 maneras:
+4. Por defecto, el compilador de TS no utiliza las últimas versiones de JS como ECMAScript 5 o 6 (ES5 y ES6) por lo que tenemos que tenerlo en cuenta a la hora de compilar el codigo usando las caracteristicas más modernas de JS. Si queremos usar una versión especifica para compilar un fichero TS podemos hacerlo de 2 maneras:
     - Con el comando <b>tsc -t esX FICHERO_TYPESCRIPT.ts</b>. Donde la "X" es la version del ETMAScript. Un ejemplo para ETMAScript 6:
 
                 tsc -t es6 fichero.ts
@@ -98,7 +98,7 @@ Que nos creara el fichero NOMBRE_FICHERO.js. Una vez creado podemos usarlo para 
                 }
             }
 
-        Donde "es6" sería la versión de TS que vamos a usar. Se puede tomar como ejemplo el fichero que está en <b>04_TS_Clases</b>, no será hasta este ejemplo cuando necesitemos la version 6 de ETMAScript.
+        Donde "es6" sería la versión de TS que vamos a usar. Se puede tomar como ejemplo el fichero que está en <b>04_TS_Clases</b>, no será hasta este ejemplo cuando necesitemos la version 6 de ECMAScript.
 
 5. Existe una manera de estar compilando de manera automática todos los cambios de los ficheros .ts a ficheros .js (de manera parecida a lo que hace eclipse con los .java, que los convierte a .class sin que tengamos que usar el compilador). Para ello debemos abrir una terminal y ejecutar el comando <b>tsc -w -p .</p> (notese el "." del final), y cada vez que cambiemos un fichero .ts se creara automaticamente su fichero .js. Lo ideal será tener 2 terminales, una para compilar automáticamente y otra para ejecutar los ficheros .js. **IMPORTANTE** Para hacer esta practica debemos de tener el fichero <b>tsconfig.json</b> en el directorio donde ejecutemos el comando <b>tsc -w -p .</p>. 
 Otra opción sería meter esta funcionalidad dentro del fichero tsconfig.json con el atributo "watch"

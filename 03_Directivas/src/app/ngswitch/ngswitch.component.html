@@ -6,6 +6,7 @@
 <br/>
 
 <div [ngSwitch]="color">
+  <!-- Nótese la comilla simple dentro de la doble, si fuera un numero no habría que ponerla-->
   <p *ngSwitchCase="'azul'" style="color:blue">
     {{texto}} EN COLOR AZUL
   </p>

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgforComponent implements OnInit {
 
+  //JSON (JavaScript Object Notation)
   listaHeroes = [
     {id: 23, universo:'DC', nombre:'Superman'},
     {id: 4, universo:'DC', nombre:'Batman'},

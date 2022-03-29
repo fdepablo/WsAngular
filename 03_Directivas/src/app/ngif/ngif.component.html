@@ -4,33 +4,31 @@
 
 <!-- if -->
 <!-- En este ejemplo mostraremos la etiqueta h3 solamente cuando mostrarTexto1 
-sea true. En este caso es más facil que en el ejemplo anterior ya que no tengo
-que jugar con propiedades. OJO! Si no pintamos la etiqueta H3, NO estara en el arbol
+sea true. En este caso es más facil que en el ejemplo de componentes ya que no tengo
+que jugar con propiedades CSS. OJO! Si no pintamos la etiqueta H3, NO estará en el arbol
 DOM.-->
-<button (click)="mostrarOcultarTexto1()">Habilitar/Deshabilitar 'Texto1'</button>
+<button (click)="mostrarOcultarTexto1()">mostrar/ocultar 'Texto1'</button>
 <h3 *ngIf="mostrarTexto1">{{texto1}}</h3>
 
 <br/><br/>
 
 <!-- if-else -->
-<button (click)="mostrarOcultarTexto2()">Habilitar/Deshabilitar 'Texto2'</button>
+<button (click)="mostrarOcultarTexto2()">mostrar/ocultar 'Texto2'</button>
 
 <div *ngIf="mostrarTexto2; else texto2oculto">
     <h3>{{texto2}}</h3>
 </div>
 <ng-template #texto2oculto>
-    <div>
-        <h4>Hemos cambiado el mensaje!!!!</h4>
-    </div>    
+    <h4>Hemos cambiado el mensaje!!!!</h4>
 </ng-template>
 
 <!-- Dentro del ngif podemos poner expresiones-->
-<button (click)="mostrarOcultarTexto3()">Habilitar/Deshabilitar 'Texto3'</button>
+<button (click)="mostrarOcultarTexto3()">mostrar/ocultar 'Texto3'</button>
 <div *ngIf="condicion == 'cadena1'; else texto3oculto">
-    <h4 style="color:blue">Podemos ver el contenido: {{condicion}}</h4>
+    <h4>Podemos ver el contenido: {{condicion}}</h4>
 </div>
 <ng-template #texto3oculto>
-    <h4 style="color:rgb(235, 34, 19)">Podemos ver el contenido: {{condicion}}</h4>
+    <h4 class="rojo">Podemos ver el contenido: {{condicion}}</h4>
 </ng-template>
 
 <hr/>

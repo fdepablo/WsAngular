@@ -10,7 +10,7 @@
 <hr/>
 <!-- 
   Routing o navegación declarativa desde la vista con parametros
-  Ojo, son PathParams, no son QueryParams(?)
+  Ojo, son PathParams(/lobezno/marvel), no son QueryParams(?nombre=lobezno&universo=marvel)
 
   Tiene que estar definida una ruta en el fichero "app-routing.module.ts" 
   que expresamente indique que hay parámetros, además de configurar
@@ -24,7 +24,7 @@
 <hr/>
 <!--
 Navegación declarativa pasando parámetros de manera dinámica, usaremos la directiva [routerLink]
-en conbinación con Two Way Binding de los formularios
+en combinación con Two Way Binding de los formularios
 -->
 <div>
   <span>Nombre: </span>
@@ -43,13 +43,23 @@ crear un método que realice la lógica y llamarlo desde la plantilla
 -->
 <div>
   <span>Pasando valores desde la vista de manera programática: </span>
-  <button (click)="routingProgramatico()">Componente 1</button>
+  <button (click)="routingProgramatico()">Componente 1 Programático</button>
 </div>
 
-<!-- Parametros de Query, usaremos la directiva [queryParams] -->
+<!-- 
+Parametros de Query, usaremos la directiva [queryParams]. De esta manerá solo hace falta
+tener declarado en en 'app.routing' el path, no los parametros de query
+Ej: /componente1?parametro1=natasha&parametro2=marvel
+-->
 <div>
   <span>Pasando valores desde la vista mediante parametros de query: </span>
   <button [routerLink]="[ '/componente1']" 
-          [queryParams]="{parametro1:'Esto es un valor',parametro2:'Esto es otro'}">Componente 1</button>
+          [queryParams]="{parametro1:nombre,parametro2:universo}">Componente 1 Query Param</button>
+</div>
+
+<!-- Parametros de Query y de manera programática -->
+<div>
+  <span>Pasando valores desde la vista mediante parametros de query y programáticamente: </span>
+  <button (click)="routingProgramaticoQueryParam()">Componente 1 Query Param Programática</button>
 </div>
 <br/>

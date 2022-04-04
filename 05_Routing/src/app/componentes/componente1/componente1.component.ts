@@ -25,7 +25,7 @@ export class Componente1Component implements OnInit {
   //cuyas instancias representan a la ruta presente en la barra de navegación
   //Basicamente se usa para recoger parámetros que nos envian otros componentes
 
-  constructor(route:ActivatedRoute) { 
+  constructor(route : ActivatedRoute) { 
     console.log("Creando Componente1")
     console.log(`nombre: ${this.nombre}`)
 

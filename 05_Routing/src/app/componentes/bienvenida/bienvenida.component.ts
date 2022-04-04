@@ -27,6 +27,11 @@ export class BienvenidaComponent implements OnInit {
     this.router.navigate([ '/componente1', this.nombre, this.universo])
   }
 
+  public routingProgramaticoQueryParam(){
+    console.log("Navegando con query param...")
+    this.router.navigateByUrl(`/componente1?parametro1=${this.nombre}&parametro2=${this.universo}`)
+  }
+
   ngOnInit() {
   }
 

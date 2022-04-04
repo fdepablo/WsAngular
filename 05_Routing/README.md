@@ -30,20 +30,25 @@ Por otro lado, tendremos la etiqueta **router-outlet**, de gran importancia en n
 
     <router-outlet></router-outlet>
 
-En esta etiqueta es donde se mostrarán los componentes que hemos declarado en el array **routes** y en nuestra aplicación.
+En esta etiqueta es donde se mostrarán los componentes que hemos declarado en el array **routes**.
 
-Si queremos que el contenido de un **router-outlet** cambie con la pulsación de un enlace o un botón le añadimos el atributo **routerLink** e indicamos la ruta (path) asociado al componente que queremos mostrar. Ojo! ¡Estos enlaces no tienen HREF!, si le ponemos un href la página entera cambiará y ya no será una aplicación SPA.
+Si queremos que el contenido de un **router-outlet** cambie con la pulsación de un enlace o un botón le añadimos el atributo **routerLink** e indicamos la ruta (path) asociado al componente que queremos mostrar. ¡Ojo, estos enlaces no tienen HREF!, si le ponemos un href, la página entera cambiará y ya no será una aplicación SPA.
 
     <button routerLink="/ruta1">Ir a Componente 1</button>
 
-Existen otras maneras de establecer el **routerLink**, como mandar información o de manera programática que se verán en los ejemplos.
+Existen otras maneras de trabajar con el **routerLink**:
+
+1. Podemos mandar información de de un componente a otro
+2. Podemos establecer las routes de manera programática.
+
+Esta parte la veremos en los ejemplos.
 
 ## Componentes de la aplicación
 
 Para este ejemplo se han creado varios componentes
 
 - cabecera
-- menu
+- menu (navegación)
 - pie-de-pagina
 - bienvenida
 - componente1
@@ -56,4 +61,7 @@ Dentro de **app-routing.module.ts** se han puesto las rutas de la aplicación.
 
 Dentro de los componentes se dan explicaciones del código para entender el funcionamiento.
 
+## Bibliografía
+
+- <https://docs.angular.lat/tutorial/toh-pt5>
 

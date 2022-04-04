@@ -16,7 +16,7 @@ Podemos poner parametros opcionales, en el siguiente ejemplo el primer parametro
 
 Podemos declarar argumentos variables de entrada, es decir, que pueden entrar entre 0 y N parametros. Esta forma sería muy parecida a la de lenguajes como Java y la manera de tratarlo sería como un Array
 
-    function name(...parameter: type[]): returnType {
+    function name(...parameters: type[]): returnType {
         // do something
     }
 

@@ -1,4 +1,5 @@
 //Función que suma 2 numeros e imprime su resultado
+//Podemos poner ":void" o no poner nada
 function sumarEnConsola(a, b) {
     var resultado = a + b;
     console.log(resultado);
@@ -20,6 +21,9 @@ function sumarConValorOpcional(a, b, c) {
     /*if(typeof(c)=="undefined"){
         c = 0;
     }*/
+    //Tambien podemos usar el operador "??", que en caso de que el valor a la izquierda
+    //del operador NO sea "undefined" entonces tomará dicho valor, en caso contrario
+    //tomará el valor de la derecha
     c = c !== null && c !== void 0 ? c : 0;
     var resultado = a + b + c;
     return resultado;
@@ -45,6 +49,10 @@ console.log(sumarParametrosVariables(1, 2, 3));
 console.log(sumarParametrosVariables(1, 2));
 console.log(sumarParametrosVariables(1, 2, 3, 4, 5));
 console.log(sumarParametrosVariables());
+//Funciones con parametros optativos y por defecto
+//Si al llamar a la funcion no le pasamos el valor del segundo 
+//parametro, entonces tomará el valor que este indicado en la
+//función.
 function concatenarNombre(a, b) {
     if (b === void 0) { b = "of Duty"; }
     return a + " " + b;

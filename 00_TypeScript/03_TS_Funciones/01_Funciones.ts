@@ -1,6 +1,7 @@
 
 //Función que suma 2 numeros e imprime su resultado
-function sumarEnConsola(a: number, b:number) {
+//Podemos poner ":void" o no poner nada
+function sumarEnConsola(a: number, b:number):void {
     let resultado = a + b;
     console.log(resultado)
 }

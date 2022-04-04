@@ -54,13 +54,13 @@ let colorRojo: [number, number, number] = [255, 0, 0];
 //Por inferencia de tipos
 let colorVerde  = [0, 255, 0];
 
-colorRojo[0] = 0;
+colorRojo[2] = 0;
 colorVerde[2] = 255;//no podriamos asignar un String
 console.log(colorRojo)
 
 // Tipo union
-let numero : number | string ;
+let numero : number | string;
 numero = 5
-numero = "5"
+numero = "cinco"
 //Error, no puede ser boolean
 //numero = true

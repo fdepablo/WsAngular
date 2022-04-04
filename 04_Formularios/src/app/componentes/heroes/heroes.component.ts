@@ -10,7 +10,7 @@ import { Heroe } from 'src/app/entidades/heroe';
 export class HeroesComponent implements OnInit {
 
   listaHeroes : Heroe[] = []
-  heroe : Heroe | null = null//permitimos al heroe apuntar null
+  heroe : Heroe | null = null//permitimos al heroe apuntar null mediante el tipo unión "|"
 
   //Habilitar o deshabilitar botones
   insertarDeshabilitado = false//boton insertar habilitado por defecto
@@ -50,20 +50,21 @@ export class HeroesComponent implements OnInit {
 
   /**
    * Método que comprueba si los campos del formulario están vacios
-   * @returns true en caso de que los campos nombre y universo esten vacios. false
+   * @returns true en caso de que los campos nombre o universo esten vacios. false
    * en caso contrario
    */
-  public hayErroresEnFormulario():boolean{
+  public hayErroresEnFormulario() : boolean{
+    //Partimos de la base de que no hay errores en el formulario
     let error : boolean = false
     this.ocultarMensajesError()
 
     if(this.nombre.trim().length==0){
-      this.nombreObligatorioOculto = false
+      this.nombreObligatorioOculto = false//mostramos el mensaje de nombre obligatorio
       error = true
     }
     
     if(this.universo.trim().length==0){
-      this.universoObligatorioOculto = false
+      this.universoObligatorioOculto = false//mostramos el mensaje de universo obligatorio
       error = true
     }
     return error
@@ -98,7 +99,7 @@ export class HeroesComponent implements OnInit {
   public borrar(){    
     for(let a=0; a<this.listaHeroes.length; a++){
       if( this.listaHeroes[a].id == this.id){
-        this.listaHeroes.splice(a,1)
+        this.listaHeroes.splice(a,1)//Eliminamos desde 'a' 1 elemento
         break;
       }
     }
@@ -111,13 +112,14 @@ export class HeroesComponent implements OnInit {
    * y habilita el boton de insertar.
    */
   public vaciar(){
-    console.log("Vaciando...")     
+    console.log("Vaciando...")  
+    //Reseteamos el formulario   
     this.id = 0
     this.nombre = ""
     this.universo = ""
 
-    this.insertarDeshabilitado = false
-    this.modificarBorrarDeshabilitado = true
+    this.insertarDeshabilitado = false//Habilitamos insertar
+    this.modificarBorrarDeshabilitado = true//Deshabilitamos modificar/borrar
 
     this.ocultarMensajesError()
   }
@@ -133,13 +135,12 @@ export class HeroesComponent implements OnInit {
     console.log("Seleccionando...")
     this.ocultarMensajesError()
 
-    //let copia : Heroe = new Heroe(heroe.nombre, heroe.universo)
     this.id = heroe.id
     this.nombre = heroe.nombre
     this.universo = heroe.universo
 
-    this.insertarDeshabilitado = true
-    this.modificarBorrarDeshabilitado = false
+    this.insertarDeshabilitado = true//Deshabilitamos insertar
+    this.modificarBorrarDeshabilitado = false//Habilitamos modificar/borrar
   }
 
   /**

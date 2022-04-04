@@ -4,18 +4,21 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Formularios
 
-Los formularios es la via principal por la que un usuario se comunicará con nuestra aplicación.
+Los formularios es la via principal por la que un usuario se comunicará con nuestra aplicación. El objetivo de este ejemplo es hacer una funcionalidad CRUD de la entidad Heroe con ayuda de un formulario. No se van a aprender conceptos nuevos, si no un ejemplo más completo sobre lo visto anteriormente.
 
-Para trabajar con formularios en Angular debemos de configurar nuestra aplicación mediante el Two Way Binding que vimos anteriormente.
+Para trabajar con formularios en Angular debemos de configurar nuestra aplicación mediante el Two Way Binding que vimos anteriormente en el ejemplo **02_Componentes**.
 
-## Two Way Binding (TWB)
+Para ello, primero debemos de configurar nuestro **app.module.ts** para importar un nuevo módulo a nuestro proyecto. Dentro del fichero debemos de importar el módulo **FormsModule** dentro del decorador **NgModule**.
 
-Mediante el TWB podemos enviar información desde el HTML hacia los componentes y viceversa. Es una combinación de las dos anteriores y muy útil para trabajar con formularios.
+Una vez configurado, podemos empezar a aplicar el concepto de TWB con la directiva **[(ngModel)]**
 
-Para ello primero debemos de configurar nuestro <b>app.module.ts</b> para importar un nuevo módulo a nuestro proyecto. Dentro del fichero debemos de importar el módulo **FormsModule** dentro del decorador **NgModule**.
-
-Una vez configurado, podemos empezar a aplicar el concepto de TWB como una mezcla de los dos anteriores, para ello debemos de usar una combinación de los anteriores operadores **[(ngModel)]**
+    <input type="text" [(ngModel)]="propiedad"/>
 
 ## Desarrollo del ejemplo
 
-En este ejemplo vamos a desarrollar una funcionalidad CRUD en angular por medio de un formulario. Para ello vamos a crear una Entidad **heroe.ts** y un componente **heroes.component.ts**.
+Para este ejemplo, vamos a crear una Entidad **heroe.ts** y un componente **heroes.component.ts**. Tanto la entidad como el componente se crearan en diferentes carpetas por motivos de organización de código (carpeta "entidades" y "componentes" respectivamente).
+
+
+## Bibliografia
+
+- [Saber que elemento HTML ha desencadenado un evento](https://stackoverflow.com/questions/36006894/angular2-get-clicked-element-id)

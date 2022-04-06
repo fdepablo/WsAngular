@@ -24,7 +24,7 @@ El ID de Angular proporciona dependencias a la clase que los necesite. Mediante 
 
 ## Generar servicios con la CLI de Angular
 
-Los servicios deben tener el decorador **@Injectable** para que sean registrados por Angular de manera automática. Una vez registrado, podremos suministralo a los componentes que lo necesiten. 
+Los servicios es una clase que debe de tener el decorador **@Injectable** para que sean registrados por Angular de manera automática. Una vez registrado, podremos suministralo a los componentes que lo necesiten. 
 
 Para generar un servicio en Angular de manera automática, debemos de usar el siguiente comando.
 
@@ -42,9 +42,16 @@ En este ejemplo ejecutamos el siguiente código.
 
     ng g s servicios\heroe
 
+Cuando creamos un servicio mediante la CLI de Angular, se nos generan 2 ficheros:
+
+    NOMBRE_DEL_SERVICIO.service.ts
+    NOMBRE_DEL_SERVICIO.service.spec.ts
+
+El fichero 'spec' se puede eliminar si no vamos a hacer pruebas unitarias con el servicio.
+
 ## Visualización del ejemplo
 
-En este caso vamos a realizar el ejemplo 04_Formulario, pero con servicios y lo aprendido en el ejemplo 06_ComunicacionComponentes. El servicio será el encargado de llevar toda la lógica de la aplicación, mientras que los componentes se limitarán a comunicarse con las plantillas.
+En este caso vamos a realizar el ejemplo 04_Formulario, pero con servicios y lo aprendido en el ejemplo 06_ComunicacionComponentes. El servicio será el encargado de llevar toda la lógica de la aplicación, mientras que los componentes se limitarán a comunicarse con las plantillas y lo servicios.
 
 Vamos a tener los siguientes componentes
 
@@ -52,6 +59,8 @@ Vamos a tener los siguientes componentes
 2. pie-de-pagina, muestra el pie de página.
 3. heroes, se encarga de mostrar el formulario e interactuar con el servicio de heroes.
 4. heroe, se encarga de pintar cada una de los heroes.
+
+También la entidad "heroe" y el servicio "heroe"
 
 ## Bibliografía
 

@@ -31,6 +31,7 @@ export class HeroesComponent implements OnInit {
   //le pasará dicho objeto para que podamos usarlo.
   constructor(private _heroeService : HeroeService) { 
     this._heroeService = _heroeService
+    //this._heroeService = new HeroeService()//NO SE DEBE HACER
     //Cargamos la lista de heroes al inicializar el componente
     this.listaHeroes = _heroeService.listar()
   }
@@ -44,17 +45,19 @@ export class HeroesComponent implements OnInit {
       let heroe  = new Heroe()
       heroe.nombre = this.nombre
       heroe.universo = this.universo
-      console.log(`Insertando Heroe: ${heroe.toString()}`)
+      console.log(`insertar -> Insertando Heroe: ${heroe.toString()}`)
       
-      let insertado = this._heroeService.insertar(heroe)
-      if(insertado == 0){
+      let validado = this.validarHeroe(heroe)
+      
+      if(validado == 0){
+        this._heroeService.insertar(heroe)
         this.vaciar()
-        console.log("Heroe insertado!")
-      }else if(insertado==1){
-        console.log("Nombre incompleto")
+        console.log("insertar -> Heroe insertado!")
+      }else if(validado == 1){
+        console.log("insertar -> Nombre incompleto")
         this.nombreObligatorioOculto = false
-      }else if(insertado==2){
-        console.log("Universo incompleto")
+      }else if(validado == 2){
+        console.log("insertar -> Universo incompleto")
         this.universoObligatorioOculto = false
       }        
   }
@@ -69,22 +72,25 @@ export class HeroesComponent implements OnInit {
     heroe.id = this.id
     heroe.nombre = this.nombre
     heroe.universo = this.universo
-    console.log(`Modificando Heroe: ${heroe.toString()}`)
-    
-    let modificado = this._heroeService.modificar(heroe)
+    console.log(`modificar -> Modificando Heroe: ${heroe.toString()}`)
 
-    if(modificado == 0){
-      this.vaciar()
-      console.log("Heroe modificado!")
-    }else if(modificado==1){
-      console.log("Nombre incompleto")
+    let validado = this.validarHeroe(heroe)
+
+    if(validado == 0){
+      let modificado = this._heroeService.modificar(heroe)
+      if(modificado){
+        this.vaciar()
+        console.log("modificar -> Heroe modificado!")
+      }else{
+        console.log("modificar -> Heroe no modificado")
+      }      
+    }else if(validado == 1){
+      console.log("modificar -> Nombre incompleto")
       this.nombreObligatorioOculto = false
-    }else if(modificado==2){
-      console.log("Universo incompleto")
+    }else if(validado == 2){
+      console.log("modificar -> Universo incompleto")
       this.universoObligatorioOculto = false
-    }else{
-      console.log("Heroe no localizado")
-    }    
+    } 
   }
 
   /**
@@ -92,14 +98,14 @@ export class HeroesComponent implements OnInit {
    * Además, vacia los campos del formulario
    */
   public borrar(){    
-    console.log("Borrando... " + this.id)
+    console.log("borrar -> Borrando heroe con id: " + this.id)
     
     let borrado = this._heroeService.borrar(this.id)
 
     if(borrado){
       this.vaciar()
     }else{
-      console.log("Heroe no localizado")
+      console.log("borrar -> Heroe no localizado")
     }
   }
 
@@ -108,7 +114,7 @@ export class HeroesComponent implements OnInit {
    * y habilita el boton de insertar.
    */
   public vaciar(){
-    console.log("Vaciando...")     
+    console.log("vaciar -> Vaciando...")     
     this.id = 0
     this.nombre = ""
     this.universo = ""
@@ -127,7 +133,7 @@ export class HeroesComponent implements OnInit {
    * @param heroe representa el heroe que queremos cargar en el formulario
    */
   public seleccionar(idHeroe : number) : void{
-    console.log("Seleccionando... " + idHeroe)
+    console.log("seleccionar -> Seleccionando... " + idHeroe)
     this.ocultarMensajesError()
 
     let heroe = this._heroeService.acceder(idHeroe)
@@ -149,6 +155,24 @@ export class HeroesComponent implements OnInit {
     this.nombreObligatorioOculto = true
     this.universoObligatorioOculto = true
   } 
+
+  /**
+   * Metodo que valida si los atributos nombre y universo no están vacios. También oculta
+   * los mensajes de error
+   * @param heroe 
+   * @returns 1 en caso de que el nombre esté vacio, 2 en caso de que el universo esté
+   * vacio y 0 en caso de que nombre y universo tengan datos.
+   */
+  private validarHeroe(heroe : Heroe) : number{
+    this.ocultarMensajesError();
+    if(heroe.nombre.trim().length == 0){
+      return 1
+    }else if(heroe.universo.trim().length == 0){
+      return 2
+    }else{
+      return 0
+    }
+  }
 
   ngOnInit() {
 

@@ -16,11 +16,11 @@ export class PersonaService {
   readonly endPoint = 'http://localhost:8080/'
 
   /**
-   * Este constructor recibirá inyectado un objeto de tipo HttpClient, que será
+   * Este constructor recibirá inyectado un objeto de tipo _HttpClient, que será
    * en encargado de hacer las peticiones HTTP a nuestro servicio REST
-   * @param httpClient 
+   * @param _httpClient 
    */
-  constructor(private httpClient : HttpClient) { 
+  constructor(private _httpClient : HttpClient) { 
     
   }
 
@@ -33,7 +33,7 @@ export class PersonaService {
     //El método "pipe" en los Observable de Angular es usado para encadenar multiples
     //operadores juntos. En este caso solo lo usamos para capturar errores. En caso de que 
     //ocurran alguno, se lo pasaremos a la funcion manejarError
-    return this.httpClient.get<Persona>(`${this.endPoint}personas/${id}`)
+    return this._httpClient.get<Persona>(`${this.endPoint}personas/${id}`)
               .pipe(catchError(this.manejarError))
   }
   
@@ -42,7 +42,7 @@ export class PersonaService {
    * @returns 
    */
   public listar(): Observable<Persona[]> {
-    return this.httpClient.get<Persona[]>(`${this.endPoint}personas/`)
+    return this._httpClient.get<Persona[]>(`${this.endPoint}personas/`)
             .pipe(catchError(this.manejarError))
   }  
 
@@ -57,10 +57,10 @@ export class PersonaService {
     //En este caso debemos de decir que el contenido que estamos mandando es de tipo
     //Json, ya que el servidor Rest solo trabaja con Json
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    return this.httpClient.post<Persona>(
-                                          this.endPoint + "personas/",
-                                          persona.toString(),
-                                          {headers: headers}
+    return this._httpClient.post<Persona>(
+                                          this.endPoint + "personas/",//URL
+                                          persona.toString(),//CONTENIDO DEL BODY
+                                          {headers: headers}//CABECERAS HTTP
                                         )
             .pipe(catchError(this.manejarError))  
   }
@@ -76,9 +76,9 @@ export class PersonaService {
     //En este caso debemos de decir que el contenido que estamos mandando es de tipo
     //Json, ya que el servidor Rest solo trabaja con Json
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    return this.httpClient.put(`${this.endPoint}personas/${persona.id}`,
-                                persona.toString(),
-                                {headers: headers})
+    return this._httpClient.put(`${this.endPoint}personas/${persona.id}`,//URL
+                                persona.toString(),//BODY
+                                {headers: headers})//CABECERAS HTTP
              .pipe(catchError(this.manejarError))
   }
 
@@ -88,7 +88,7 @@ export class PersonaService {
    * @returns 
    */
   public borrar(id : number) : Observable<any>{    
-    return this.httpClient.delete(`${this.endPoint}personas/${id}`)
+    return this._httpClient.delete(`${this.endPoint}personas/${id}`)
             .pipe(catchError(this.manejarError))
   } 
 
@@ -97,13 +97,13 @@ export class PersonaService {
    * @param error 
    * @returns 
    */
-  private manejarError(error: HttpErrorResponse){
+  private manejarError(e: HttpErrorResponse){
     let mensajeError = ''
-    if (error.error instanceof ErrorEvent) {
-      mensajeError = 'A ocurrido un error:' + error.error
+    if (e.error instanceof ErrorEvent) {
+      mensajeError = 'A ocurrido un error:' + e.error
     } else {
-      mensajeError = `El servicio Rest retorno: Status: ${error.status}, ` +
-            `Body: ${error.error}`
+      mensajeError = `El servicio Rest retorno: Status: ${e.status}, ` +
+            `Body: ${e.error}`
     }
     console.error(mensajeError)
     return throwError(() => new Error(mensajeError));

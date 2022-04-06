@@ -4,9 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # HTTP Client
 
-**HttpClient** es un cliente HTTP hecho en JS con los métodos HTTP más habituales, muy usado para consumir APIs Rest. Esta librería está basada en **Observables**, que son objetos cuyo propósito es la de realizar tareas asíncronas. 
+**HttpClient** es un cliente HTTP hecho en JS con los métodos HTTP más habituales, muy usado para consumir **APIs Rest**. Esta librería está basada en **Observables**, que son objetos cuyo propósito es la de realizar tareas asíncronas. 
 
-Básicamente, **HTTPClient** es lo que vamos a utilizar para hacer llamadas a una API REST y obtener resultados de esta.
+Básicamente, **HTTPClient** es lo que vamos a utilizar para hacer llamadas a una API REST (o incluso Servlets) y obtener resultados de esta.
 
 Los métodos más usados de esta librería son los siguientes
 
@@ -23,13 +23,25 @@ El objeto Observable que devuelve permite tipos de datos o genericos
 
     get(url: string, options: {...}): Observable<Persona>
 
-HttpClient te devuelve directamente el body de la respuesta en formato Json, lo cual suele simplificar el código.
+HttpClient te devuelve directamente el body de la respuesta en formato **Json**, lo cual suele simplificar el código.
 
 Un ejemplo sencillo de una petición get a un servicio REST podría ser la siguiente
 
-    httpClient.get('http://miapirest/personas')
-        .subscribe(respuesta => {//respuesta es un objeto Json que contiene el body
+    httpClient.get('http://miapirest/mirecurso')
+        .subscribe(respuesta => {//'respuesta' es un objeto Json que contiene el body
             console.log(respuesta);
+        });
+
+El ejemplo anterior se ejecutará tanto si ha ido bien o ha ido mal la respuesta. Normalmente nos interesa hacer control de errores por lo que debemos usar el siguiente formato:
+
+    httpClient.get('http://miapirest/mirecurso')
+        .subscribe({
+            next : respuesta => {
+              console.log(respuesta}) 
+            },
+            error: (e: any) => {
+              console.log(e})
+            }
         });
 
 Es una buena práctica que sea un **servicio** el que se encargue de hacer las peticiones http hechas por esta librería. El componente sería el que se encargue de usar dicho servicio.
@@ -46,11 +58,11 @@ Dicho servicio acepta las siguientes peticiones
     - GET /personas/{ID} -> Devuelve una persona por ID. Devuelve 200 Si la encuentra, 404 en caso contrario.
     - POST /personas -> Da de alta una persona en formato Json enviado en el body. El ID lo generará el propio servicio. Devuelve 201 y la persona dada de alta.
     - PUT /personas/{ID} -> Modifica una persona por ID en formato Json enviado en el body. Devuelve 200 Si la encuentra, 404 en caso contrario.
-    - DELETE /personas/{ID} -> Borra una persona por ID. Devuelve 200 Si la encuentra, 404 en caso contrario.
+    - DELETE /personas/{ID} -> Borra una persona por ID. Devuelve 200 y el objeto persona en formato json si la encuentra, 404 en caso contrario.
 
 El fichero .jar ejecutable se puede encontrar en la raíz de este workspace, para arrancar el servidor simplemente tenemos que ejecutar el fichero **restPersona.bat** que también está en dicha raíz.
 
-Una vez arrancando, ya podremos poner en marcha la aplicación.
+Una vez arrancando, ya podremos poner en marcha la aplicación. El servicio se arrancara en **http://localhost:8080**
 
 ## Visualización del ejemplo
 

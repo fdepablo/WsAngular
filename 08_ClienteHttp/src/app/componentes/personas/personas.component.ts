@@ -39,12 +39,12 @@ export class PersonasComponent implements OnInit {
   public listar(){
     this._personaService.listar()
       .subscribe({
-        next:  (respuesta: any) => {
+        next:  (respuesta: Persona[]) => {
           this.listaPersonas = respuesta;
         },
-        error: (err: any) => {
+        error: (e: any) => {
           this.listaPersonas = []
-          alert(err)
+          alert(e)
         }
       });
   }
@@ -57,25 +57,23 @@ export class PersonasComponent implements OnInit {
    * @param Persona representa el Persona que queremos cargar en el formulario
    */
    public seleccionar(idPersona : number) : void{
-    console.log("Seleccionando... " + idPersona)
+    console.log("seleccionar -> Seleccionando... " + idPersona)
     this.ocultarMensajesError()
 
     this._personaService.acceder(idPersona)
       .subscribe({
         next : (respuesta : Persona)   => {
           console.log('seleccionar -> objeto: ' + JSON.stringify(respuesta))
-          if(respuesta){
-            this.id = respuesta.id
-            this.nombre = respuesta.nombre
-            this.apellidos = respuesta.apellidos
-            this.edad = respuesta.edad
+          this.id = respuesta.id
+          this.nombre = respuesta.nombre
+          this.apellidos = respuesta.apellidos
+          this.edad = respuesta.edad
 
-            this.insertarDeshabilitado = true
-            this.modificarBorrarDeshabilitado = false
-          }
+          this.insertarDeshabilitado = true
+          this.modificarBorrarDeshabilitado = false          
         },
-        error: (err: any) => {
-          alert(err)
+        error: (e: any) => {
+          alert(e)
         }
       });           
   }
@@ -94,20 +92,23 @@ export class PersonasComponent implements OnInit {
       let validada = this.validarPersona(persona);
 
       if(validada == 0){
-        console.log(`Insertando Persona: ${persona.toString()}`)
+        console.log(`insertar -> Insertando Persona: ${persona.toString()}`)
         this._personaService.insertar(persona)
-          .subscribe(
-            respuesta  => { 
-              console.log(`insertar -> Persona insertada, objeto: ${respuesta}`) 
+          .subscribe({
+            next : (respuesta : Persona) => {
+              console.log(`insertar -> Persona insertada, ${respuesta}`) 
               this.listar()
               this.vaciar()
-            }        
-          )
-      }else if(validada==1){
-        console.log("Nombre incompleto")
+            },
+            error: (e: any) => {
+              alert(e)
+            }
+          })   
+      }else if(validada == 1){
+        console.log("insertar -> Nombre incompleto")
         this.nombreObligatorioOculto = false
-      }else if(validada==2){
-        console.log("apellidos incompleto")
+      }else if(validada == 2){
+        console.log("insertar -> apellidos incompleto")
         this.apellidosObligatorioOculto = false
       }        
   }
@@ -127,20 +128,23 @@ export class PersonasComponent implements OnInit {
     let validada = this.validarPersona(persona);
 
     if(validada == 0){
-      console.log(`Modificando Persona: ${persona.toString()}`)
-      this._personaService.insertar(persona)
-        .subscribe(
-          respuesta  => { 
-            console.log(`modificar -> Persona modificada, objeto: ${respuesta.toString()}`) 
+      console.log(`modificar -> Modificando Persona: ${persona.toString()}`)
+      this._personaService.modificar(persona)
+        .subscribe({
+          next : respuesta => {
+            console.log(`modificar -> Persona modificada, ${respuesta}`) 
             this.listar()
             this.vaciar()
-          }        
-        )
-    }else if(validada==1){
-      console.log("Nombre incompleto")
+          },
+          error: (e: any) => {
+            alert(e)
+          }
+        })
+    }else if(validada == 1){
+      console.log("modificar -> Nombre incompleto")
       this.nombreObligatorioOculto = false
-    }else if(validada==2){
-      console.log("apellidos incompleto")
+    }else if(validada == 2){
+      console.log("modificar -> apellidos incompleto")
       this.apellidosObligatorioOculto = false
     }       
   }
@@ -150,20 +154,20 @@ export class PersonasComponent implements OnInit {
    * Además, vacia los campos del formulario
    */
   public borrar(){    
-    console.log("Borrando... " + this.id)
+    console.log("borrar -> Borrando... " + this.id)
     
     this._personaService.borrar(this.id)
-      .subscribe(
-        respuesta  => {
-          console.log("Respuesta borrar: " + respuesta) 
-            if(respuesta){
-              this.listar()//volvemos a pedir los elementos al servidor
-              this.vaciar()
-            }else{
-              console.log("Persona no localizado")
-            }
-        }        
-      )    
+      .subscribe({
+        next : respuesta => {
+          console.log(`borrar -> Persona modificada, ${respuesta}`) 
+          this.listar()
+          this.vaciar()
+        },
+        error: (e: any) => {
+          console.log(`borrar -> No se ha podido borrar la persona, ${e}`)
+          alert(e)
+        }
+      })    
   }
 
   /**
@@ -171,7 +175,7 @@ export class PersonasComponent implements OnInit {
    * y habilita el boton de insertar.
    */
   public vaciar(){
-    console.log("Vaciando...")     
+    console.log("vaciar -> Vaciando...")     
     this.id = 0
     this.nombre = ""
     this.apellidos = ""
@@ -192,11 +196,13 @@ export class PersonasComponent implements OnInit {
   } 
 
   /**
-   * 
+   * Método que valida si el nombre y los apellidos de una persona están rellenos. Además
+   * oculta los mensajes de error
    * @param persona 
    * @returns 
    */
    private validarPersona(persona : Persona) : number{
+    this.ocultarMensajesError();
     if(persona.nombre.trim().length == 0){
       return 1
     }else if(persona.apellidos.trim().length == 0){

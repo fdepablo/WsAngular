@@ -1,5 +1,7 @@
 
-// Clase que guarda los atributos de una persona
+/**
+ *  Clase que almacena una persona
+ */
 export class Persona{
 
     id: number = 0
@@ -9,7 +11,12 @@ export class Persona{
         
     constructor(){}
 
-    //El objeto esperado en el servicio REST tiene que tener formato Json
+    /**
+     * Método que convierte un objeto de tipo persona a formato JSON (ya que el 
+     * servidor REST solo admite formato JSON)
+     * @returns el objeto en formato JSON 
+     * {"id":1,"nombre":"STEVE","apellidos":"ROGERS","edad":39}
+     */
     public toString() : string {
         return JSON.stringify(this)
     }

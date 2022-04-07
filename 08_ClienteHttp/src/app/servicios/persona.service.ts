@@ -13,7 +13,7 @@ import { Persona } from '../entidades/persona';
 export class PersonaService {
 
   //Hacemos que el atributo sea solo de lectura
-  readonly endPoint = 'http://localhost:8080/'
+  readonly endPoint = 'http://localhost:8080'
 
   /**
    * Este constructor recibirá inyectado un objeto de tipo _HttpClient, que será
@@ -24,28 +24,35 @@ export class PersonaService {
     
   }
 
+
+  /**
+   * Método que accede a todas las personas del servicio rest
+   * @returns 
+   */
+  public listar(): Observable<Persona[]> {
+    //Para hacer peticiones HTTP debemos de usar un objeto de tipo HttpClient y crear
+    //un objeto de tipo Observable. 
+    //Para hacer la petición primero debemos de elegir el método HTTP que queremos usar
+    //en este caso, get. A este método debemos de pasarle como parámetro el recurso
+    //con el que queremos trabajar (http://localhost:80808/personas)
+    return this._httpClient.get<Persona[]>(`${this.endPoint}/personas`)
+             .pipe(catchError(this.manejarError))
+    //El método "pipe" en los Observable de Angular es usado para encadenar multiples
+    //operadores juntos. En este caso solo lo usamos para capturar errores. En caso de que 
+    //ocurran alguno, se lo pasaremos a la funcion manejarError
+  }  
+
   /**
    * Método que accede a una persona del servicio rest a partir de un id
    * @param id 
    * @returns 
    */
   public acceder(id : number) : Observable<Persona>{   
-    //El método "pipe" en los Observable de Angular es usado para encadenar multiples
-    //operadores juntos. En este caso solo lo usamos para capturar errores. En caso de que 
-    //ocurran alguno, se lo pasaremos a la funcion manejarError
-    return this._httpClient.get<Persona>(`${this.endPoint}personas/${id}`)
+    
+    return this._httpClient.get<Persona>(`${this.endPoint}/personas/${id}`)
               .pipe(catchError(this.manejarError))
   }
   
-  /**
-   * Método que accede a todas las personas del servicio rest
-   * @returns 
-   */
-  public listar(): Observable<Persona[]> {
-    return this._httpClient.get<Persona[]>(`${this.endPoint}personas/`)
-            .pipe(catchError(this.manejarError))
-  }  
-
   /**
    * Método que da de alta una persona en el servicio rest. La persona viajará
    * en el body en formato Json.
@@ -57,9 +64,13 @@ export class PersonaService {
     //En este caso debemos de decir que el contenido que estamos mandando es de tipo
     //Json, ya que el servidor Rest solo trabaja con Json
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    //Mandamos 3 parametros:
+    //1- URL
+    //2- CONTENIDO DEL BODY
+    //3- HEADERS
     return this._httpClient.post<Persona>(
-                                          this.endPoint + "personas/",//URL
-                                          persona.toString(),//CONTENIDO DEL BODY
+                                          this.endPoint + "/personas",//URL
+                                          persona.toString(),//CONTENIDO DEL BODY (JSON)
                                           {headers: headers}//CABECERAS HTTP
                                         )
             .pipe(catchError(this.manejarError))  
@@ -76,8 +87,12 @@ export class PersonaService {
     //En este caso debemos de decir que el contenido que estamos mandando es de tipo
     //Json, ya que el servidor Rest solo trabaja con Json
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    return this._httpClient.put(`${this.endPoint}personas/${persona.id}`,//URL
-                                persona.toString(),//BODY
+    //Mandamos 3 parámetros:
+    //1- URL
+    //2- CONTENIDO DEL BODY
+    //3- HEADERS
+    return this._httpClient.put(`${this.endPoint}/personas/${persona.id}`,//URL
+                                persona.toString(),//CONTENIDO DEL BODY (JSON)
                                 {headers: headers})//CABECERAS HTTP
              .pipe(catchError(this.manejarError))
   }
@@ -88,7 +103,7 @@ export class PersonaService {
    * @returns 
    */
   public borrar(id : number) : Observable<any>{    
-    return this._httpClient.delete(`${this.endPoint}personas/${id}`)
+    return this._httpClient.delete(`${this.endPoint}/personas/${id}`)
             .pipe(catchError(this.manejarError))
   } 
 

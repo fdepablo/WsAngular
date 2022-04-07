@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/entidades/persona';
 import { PersonaService } from 'src/app/servicios/persona.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-personas',
@@ -37,13 +38,19 @@ export class PersonasComponent implements OnInit {
   }
 
   public listar(){
-    this._personaService.listar()
-      .subscribe({
+    let obs : Observable<Persona[]> = this._personaService.listar();
+      
+    //Cuando invocamos el método subscribe es cuando ejecutamos la petición 
+    //HTTP al servidor. Dentro de método ponemos 2 funciones lambda, next
+    //se ejecutará si todo ha ido bien, error se ejecutará si ha habido
+    //algún problema
+    obs.subscribe({
         next:  (respuesta: Persona[]) => {
           this.listaPersonas = respuesta;
         },
         error: (e: any) => {
           this.listaPersonas = []
+          console.log(`listar -> No se han podido listar las personas, ${e}`)
           alert(e)
         }
       });
@@ -73,6 +80,7 @@ export class PersonasComponent implements OnInit {
           this.modificarBorrarDeshabilitado = false          
         },
         error: (e: any) => {
+          console.log(`seleccionar -> No se ha podido seleccionar la persona, ${e}`)
           alert(e)
         }
       });           
@@ -101,6 +109,7 @@ export class PersonasComponent implements OnInit {
               this.vaciar()
             },
             error: (e: any) => {
+              console.log(`insertar -> No se ha podido insertar la persona, ${e}`)
               alert(e)
             }
           })   
@@ -137,6 +146,7 @@ export class PersonasComponent implements OnInit {
             this.vaciar()
           },
           error: (e: any) => {
+            console.log(`modificar -> No se ha podido modificar la persona, ${e}`)
             alert(e)
           }
         })

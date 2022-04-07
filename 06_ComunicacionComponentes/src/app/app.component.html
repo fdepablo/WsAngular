@@ -1,5 +1,12 @@
+<!-- 
+    Podemos pasarle a un atributo @Input() de un componente hijo el valor de un atributo
+    de la clase padre
+-->
 <app-cvariable [texto]="textoCabecera"></app-cvariable>
 
 <app-heroes></app-heroes>
 
-<app-cvariable [texto]="textoPieDePagina"></app-cvariable>
+<!-- 
+    Tambien podemos pasarle un texto u otro tipo de dato
+-->
+<app-cvariable [texto]="'PIE DE PAGINA'"></app-cvariable>

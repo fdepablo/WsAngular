@@ -5,6 +5,8 @@ import { Heroe } from '../entidades/heroe';
 //Los servicios en Angular se inyectan, jamás los crearemos con 'new'
 //Aqúi estamos diciendo a Angular que cree un objeto de tipo HeroeService
 //y que podrá ser inyectado en otros objetos (en nuestro caso, en componentes)
+//Con "providedIn: 'root'" hacemos que el servicio tenga un comportamiento de
+//'Singleton", es decir, el objeto que inyectaremos será único para todos.
 @Injectable({
   providedIn: 'root'
 })

@@ -12,7 +12,7 @@ Normalmente en una aplicación Angular tendremos muchos componentes declarados, 
 
 El componente **parent-component** servirá como contexto para el **child-component** y para realizar comunicaciones entre ambos componentes usaremos los decoradores **@Input()** y **@Output()**.
 
-- **@Input()** permite al atributo recibir valores desde la etiqueta padre que le invoque. Esto es una manera de permiteiral componente padre modificar datos en el componente hijo.
+- **@Input()** permite al atributo recibir valores desde la etiqueta padre que le invoque. Esto es una manera de permitira a un componente padre modificar datos en el componente hijo.
 
 ![input](img/input.svg)
 
@@ -20,7 +20,7 @@ El componente **parent-component** servirá como contexto para el **child-compon
 
 ![output](img/output.svg)
 
-El objetivo de esta modularizar los componentes, es el poder reutilizar componentes a lo largo de nuestra aplicación.
+Suele ser una buena práctica modularizar los componentes, y así poder reutilizarlos a lo largo de nuestra aplicación.
 
 ## Visualizando el ejemplo
 
@@ -33,8 +33,8 @@ El componente héroe debe de tener un atributo decorado con **@Input** para pode
 
 De esta manera, podremos usar el componente **heroe** dentro del componente **heroes**, pero además podremos usarlo en cualquier otra parte de nuestra aplicación de manera independiente.
 
-Por otro lado, tenemos tambien un componente llamado **cvariable** cuya función es hacer de cabecera y de pie de página al mismo tiempo. Como queremos que el texto sea variable, el componente tendrá
-un atributo **@Input** que recogera un 'flag' con el texto que queremos mostrar.
+Por otro lado, tenemos también un componente llamado **cvariable** cuya función es hacer de cabecera y de pie de página al mismo tiempo. Como queremos que el texto sea variable, el componente tendrá
+un atributo **@Input** que recogera datos del componente padre **app**.
 
 ## Bibliografía
 

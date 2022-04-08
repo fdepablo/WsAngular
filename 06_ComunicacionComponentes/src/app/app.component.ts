@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = '06_ComunicacionComponentes';
+  //Atributo que pasaremos al componente 'cvariable'
   textoCabecera = 'CABECERA'
 }

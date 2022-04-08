@@ -2,23 +2,28 @@ import { Injectable } from '@angular/core';
 import { Heroe } from '../entidades/heroe';
 
 
-//Los servicios en Angular se inyectan, jamás los crearemos con 'new'
+//Los servicios en Angular se inyectan, jamás los crearemos con 'new'.
+//Para ello usaremos el decorador @Inyectable sobre la clase.
+
 //Aqúi estamos diciendo a Angular que cree un objeto de tipo HeroeService
-//y que podrá ser inyectado en otros objetos (en nuestro caso, en componentes)
+//por nosotros (Inversión de Control) y que podrá ser inyectado en otros objetos 
+//(Inyección de Dependencias)
+
 //Con "providedIn: 'root'" hacemos que el servicio tenga un comportamiento de
-//'Singleton", es decir, el objeto que inyectaremos será único para todos.
+//'Singleton", es decir, el objeto será único para toda la aplicación.
 @Injectable({
   providedIn: 'root'
 })
 export class HeroeService {
 
+  //Al ser el objeto unico, no tenemos porque hacer esta vez el atributo estatico
   private contadorId : number = 1;
   private listaHeroes : Heroe[] = []
 
   constructor() { 
     let heroe : Heroe = new Heroe()
-    heroe.id = this.contadorId++
-    heroe.nombre = "Natasha Romanoff"
+    heroe.id = this.contadorId++//Aquí estamos invocando al set aunque no lo parezca...
+    heroe.nombre = "Natasha Romanoff"//Lo mismo de arriba...
     heroe.universo = "MARVEL"
     this.listaHeroes.push(heroe);
 
@@ -30,7 +35,7 @@ export class HeroeService {
   }
 
   /**
-   * Método que inserta un heroe en una listam generando su id
+   * Método que inserta un heroe en una lista generando su id
    * @param heroe a insertar
    */
   public insertar(heroe : Heroe){
@@ -40,12 +45,12 @@ export class HeroeService {
   
   /**
    * Método que modifica un heroe de una lista si se encuentra dentro de ella
-   * @param heroe 
+   * @param heroe a modificar
    * @returns true en caso de que se haya modificado, false en caso contrario
    */
   public modificar(heroe : Heroe): boolean{       
     for(let a=0; a<this.listaHeroes.length; a++){
-      let heroeAux : Heroe = this.listaHeroes[a]
+      let heroeAux = this.listaHeroes[a]
       if(heroeAux.id == heroe.id){
         this.listaHeroes[a] = heroe
         return true;
@@ -65,6 +70,7 @@ export class HeroeService {
     for(let a=0; a<this.listaHeroes.length; a++){
       if( this.listaHeroes[a].id == id){
         this.listaHeroes.splice(a,1)
+        return true
       }
     }
     return false;//No debería darse nunca este caso

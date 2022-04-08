@@ -54,8 +54,6 @@ Podemos pasar todos los datos que queramos desde el elemento padre al hijo.
 >
 </app-heroe>
 
-<tr *ngIf="listaHeroes.length==0">
-    <td class="rojo" colspan="4">
-        No se han encontrado heroes
-    </td>
-</tr>
+<div *ngIf="listaHeroes.length == 0" class="rojo">
+    No se han encontrado heroes
+</div>

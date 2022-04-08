@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CVariableComponent implements OnInit {
 
-  @Input() texto : String;
+  @Input() texto : string;
 
   constructor() { }
 

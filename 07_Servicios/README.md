@@ -10,7 +10,7 @@ Al centralizar toda la lógica de acceso a datos en un servicio, los demás comp
 
 Los componentes no deberían buscar ni guardar datos directamente. Deben centrarse en presentar datos y delegar el acceso a los datos a un servicio.
 
-Los componentes **NUNCA** deben crear los servicios, es el propio Angular en encargado de crearlos y dejarlos preparados para pasárselos a los componentes que los necesiten mediante la **inyección de dependencias**
+Los componentes **NUNCA** deben crear los servicios, es el propio Angular el encargado de crearlos y dejarlos preparados para pasárselos a los componentes que los necesiten mediante la **inyección de dependencias**
 
 ## Inyección de dependencias (ID)
 
@@ -20,7 +20,7 @@ La **inyección de dependencias (ID)** o en inglés **Dependency Injection (DI)*
 
 Una de las principales maneras que tiene Angular de implementar la ID es mediante los **servicios**.
 
-El ID de Angular proporciona dependencias a la clase que los necesite. Mediante la ID en angular incrementamos la flexibilidad y la modularidad de nuestras aplicaciones.
+La ID de Angular proporciona dependencias a la clase que los necesite. Mediante la ID en Angular incrementamos la flexibilidad y la modularidad de nuestras aplicaciones.
 
 ## Generar servicios con la CLI de Angular
 
@@ -51,7 +51,7 @@ El fichero 'spec' se puede eliminar si no vamos a hacer pruebas unitarias con el
 
 ## Visualización del ejemplo
 
-En este caso vamos a realizar el ejemplo 04_Formulario, pero con servicios y lo aprendido en el ejemplo 06_ComunicacionComponentes. El servicio será el encargado de llevar toda la lógica de la aplicación, mientras que los componentes se limitarán a comunicarse con las plantillas y lo servicios.
+En este caso vamos a realizar el ejemplo 04_Formulario, pero con servicios y lo aprendido en el ejemplo 06_ComunicacionComponentes. El servicio será el encargado de llevar el acceso a datos de la aplicación, mientras que los componentes se limitarán a comunicarse con las plantillas y lo servicios.
 
 Vamos a tener los siguientes componentes
 

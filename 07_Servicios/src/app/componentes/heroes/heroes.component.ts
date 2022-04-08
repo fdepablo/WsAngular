@@ -104,6 +104,7 @@ export class HeroesComponent implements OnInit {
 
     if(borrado){
       this.vaciar()
+      console.log("borrar -> Heroe borrado!")
     }else{
       console.log("borrar -> Heroe no localizado")
     }
@@ -142,7 +143,10 @@ export class HeroesComponent implements OnInit {
       this.id = heroe.id
       this.nombre = heroe.nombre
       this.universo = heroe.universo
-    }   
+      console.log("seleccionar -> Heroe localizado")
+    } else{
+      console.log("seleccionar -> Heroe no encontado :(")
+    }
 
     this.insertarDeshabilitado = true
     this.modificarBorrarDeshabilitado = false

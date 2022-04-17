@@ -4,71 +4,89 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # HTTP Client
 
-**HttpClient** es un cliente HTTP hecho en JS con los métodos HTTP más habituales, muy usado para consumir **APIs Rest**. Esta librería está basada en **Observables**, que son objetos cuyo propósito es la de realizar tareas asíncronas. 
+**HttpClient** es un cliente HTTP hecho en JS con los métodos más habituales( GET, POST, PUT, etc.). Esta librería está basada en **Observables** y su propósito es la de realizar peticiones HTTP de manera asíncronas. 
 
-Básicamente, **HTTPClient** es lo que vamos a utilizar para hacer llamadas a una API REST (o incluso Servlets) y obtener resultados de esta.
+**HTTPClient** es utilizada principalmente para consumir una **API REST** y obtener resultados de esta (normalmente en formato Json).
 
 Los métodos más usados de esta librería son los siguientes
 
-    get(url: string, options: {...}): Observable<any> //Para obtener información
-    delete(url: string, options: {...}): Observable<any> //Para borrar información
-    post(url: string, body: any|null, options: {...}): Observable<any> //Para dar de alta información
-    put(url: string, body: any|null, options: {...}): Observable<any> //Para modificar información
+    get(url: string, options: {...}): Observable<any> //Para obtener recursos
+    delete(url: string, options: {...}): Observable<any> //Para borrar recursos
+    post(url: string, body: any|null, options: {...}): Observable<any> //Para dar de alta recursos
+    put(url: string, body: any|null, options: {...}): Observable<any> //Para modificar recursos
 
-Podemos ver como los métodos devuelven un objeto de tipo **Observable**. Estos objetos representan una colección de futuros valores, es decir, que no tenemos todavía pero que tendremos en un futuro. Aquí es donde entra el juego la llamada programación reactiva, que es un paradigma de la programación enfocado en el trabajo con flujos de datos finitos o infinitos de manera asíncrona.
+Podemos ver como los métodos devuelven un objeto de tipo **Observable**. Estos objetos representan una colección de futuros valores, es decir, valores que no tenemos todavía pero que tendremos en un futuro. Aquí es donde entra el juego la llamada **programación reactiva**, que es un paradigma de la programación enfocado en el trabajo con flujos de datos finitos o infinitos de manera asíncrona.
 
-Uno de los métodos más importantes de la clase Observable es el método **subscribe()**. Las peticiones (get, post, etc.) no se lanzarán hasta que no se ejecute el método **subscribe()**, al que tendremos que pasarle una función de **callback** o retro llamada, normalmente una función **lambda**. Dicha función de callback, se ejecutará cuando el servidor responda a la petición. Todas estas peticiones se ejecutarán de manera asyncrona ya que no podemos saber cuando se el servidor nos responderá.
+Uno de los métodos más importantes de la clase **Observable** es el método **subscribe()**. Las peticiones (get, post, etc.) no se lanzarán hasta que no se ejecute el método **subscribe()**, al que tendremos que pasarle una función de **callback** o retro llamada. Dicha función puede ser una una función **lambda** o una función JS normal y se ejecutará cuando el servidor responda a la petición. Todas estas peticiones se ejecutarán normalmente de manera asíncrona ya que no podemos saber cuando el servidor nos responderá.
 
-El objeto Observable que devuelve permite tipos de datos o genericos
+Una función **lambda** tiene el siguiente formato:
 
-    get(url: string, options: {...}): Observable<Persona>
+    pararametroEntrada => {
+        //TODO
+        console.log(pararametroEntrada);
+    }
 
-HttpClient te devuelve directamente el body de la respuesta en formato **Json**, lo cual suele simplificar el código.
+Que tendría su equivalente en funciones clásicas:
 
-Un ejemplo sencillo de una petición get a un servicio REST podría ser la siguiente
+    function(parametroEntrada){
+        //TODO
+        console.log(pararametroEntrada);
+    }
+
+**HttpClient** devuelve el body de la respuesta HTTP en formato **Json**, lo cual suele simplificar el código a la hora de manejar la información.
+
+Un ejemplo sencillo de una petición **get** a un servicio REST podría ser la siguiente
 
     httpClient.get('http://miapirest/mirecurso')
-        .subscribe(respuesta => {//'respuesta' es un objeto Json que contiene el body
+        .subscribe(respuesta => {//'respuesta' es el contenido del body
             console.log(respuesta);
         });
 
-El ejemplo anterior se ejecutará tanto si ha ido bien o ha ido mal la respuesta. Normalmente nos interesa hacer control de errores por lo que debemos usar el siguiente formato:
+Aunque normalmente nos interesa hacer control de errores, por lo que debemos usar el siguiente formato:
 
     httpClient.get('http://miapirest/mirecurso')
         .subscribe({
-            next : respuesta => {
+            next : respuesta => {//Si todo ha ido bien se ejecuta esta función
               console.log(respuesta}) 
             },
-            error: (e: any) => {
-              console.log(e})
+            error: e => {
+              console.log(e})//Si hay algún error se ejecuta está otra
             }
         });
 
-Es una buena práctica que sea un **servicio** el que se encargue de hacer las peticiones http hechas por esta librería. El componente sería el que se encargue de usar dicho servicio.
+En este caso, al método **subscribe** no le pasamos una única función de **callback**, le pasamos dos funciones dentro de un objeto **Json**. La primera función **next**, será ejecutada en caso de que todo haya ido bien. La segunda función **error**, será ejecutada cuando haya ocurrido alguna excepción.
+
+Es una buena práctica que sea un **servicio** el que se encargue de hacer las peticiones HTTP. El componente sería el que se use dicho servicio.
 
 Para usar esta librería en Angular debemos de importar el módulo **HttpClientModule** dentro del fichero **app.module.ts**
 
-## Poner en marcha el servidor REST
+## Poner en marcha el servicio REST
 
-Este ejemplo va a utilizar un servicio REST hecho con SpringBoot cuyo código fuente está en este [enlace](https://github.com/fdepablo/WorkspaceJava/tree/master/27_SpringBootRestJpaData).
+Este ejemplo va a utilizar un servicio REST hecho con SpringBoot cuyo código fuente está en este [enlace](https://github.com/fdepablo/WorkspaceJava/tree/master/27_SpringBootRestJpaData). Es un servicio que realiza un CRUD con una entidad persona, que tiene un id, un nombre, unos apellidos y una edad.
+
+Todo el intercambio de información de cliente y servidor será en formato **Json**.
 
 Dicho servicio acepta las siguientes peticiones
 
-    - GET /personas -> Devuelve toda la lista de personas
-    - GET /personas/{ID} -> Devuelve una persona por ID. Devuelve 200 Si la encuentra, 404 en caso contrario.
-    - POST /personas -> Da de alta una persona en formato Json enviado en el body. El ID lo generará el propio servicio. Devuelve 201 y la persona dada de alta.
-    - PUT /personas/{ID} -> Modifica una persona por ID en formato Json enviado en el body. Devuelve 200 Si la encuentra, 404 en caso contrario.
-    - DELETE /personas/{ID} -> Borra una persona por ID. Devuelve 200 y el objeto persona en formato json si la encuentra, 404 en caso contrario.
+    - GET /personas -> Devuelve 200 y toda la lista de personas.
+    - GET /personas/{ID} -> Devuelve una persona por ID. Si existe la persona, devuelve 200 y el objeto de tipo persona, en caso contrario devuelve 404.
+    - POST /personas -> Da de alta una persona enviada en el body. El ID de la persona lo generará el propio servicio. Devuelve 201 y la persona dada de alta con el ID generado.
+    - PUT /personas/{ID} -> Modifica una persona por ID enviada en el body. Devuelve 200 si la encuentra, 404 en caso contrario.
+    - DELETE /personas/{ID} -> Borra una persona por ID. Devuelve 200 y el objeto de tipo persona si la encuentra, 404 en caso contrario.
 
-El fichero .jar ejecutable se puede encontrar en la raíz de este workspace, para arrancar el servidor simplemente tenemos que ejecutar el fichero **restPersona.bat** que también está en dicha raíz.
+Podemos encontrar el ejecutable con el servicio en el fichero **.jar** de la raíz de este workspace. Para arrancar el servicio simplemente tenemos que ejecutar el fichero **restPersona.bat**, que también está en la raíz del proyecto, mediante una terminal de comandos.
 
-Una vez arrancando, ya podremos poner en marcha la aplicación. El servicio se arrancara en **http://localhost:8080**
+Una vez arrancando, ya podremos poner en marcha la aplicación. El servicio se arrancara en **http://localhost:8080**.
+
+También podemos usar un navegador o la aplicación **Postman** para hacer las peticiones y commprobar que el servicio Rest está funcionando.
+
+Para parar el servicio podemos pulsar **ctrl+C**
 
 ## Visualización del ejemplo
 
-Este ejemplo va a seguir la metodología vista en el ejemplo 07_Servicios, pero esta vez, el servicio que vamos a crear va a usar la librería HttpClient para hacer peticiones Http al servidor REST.
+Este ejemplo va a seguir la metodología vista en el 07_Servicios, pero esta vez, el servicio que vamos a crear va a usar la librería HttpClient para hacer peticiones al servidor REST.
 
-Para este ejemplo, en vez de utilizar la entidad héroe, vamos a utilizar la entidad **persona**, que tiene un id, nombre, apellidos y edad.
+Además, en vez de utilizar la entidad héroe, vamos a utilizar la entidad **persona**, que tiene un id, nombre, apellidos y edad.
 
 Vamos a tener los siguientes componentes
 
@@ -77,11 +95,13 @@ Vamos a tener los siguientes componentes
 3. personas, se encarga de mostrar el formulario e interactuar con el servicio de personas.
 4. persona, se encarga de pintar cada una de las personas.
 
+También tendremos la entidad "heroe" y el servicio "heroe"
+
 ## Bibliografía
 
-- [HTTP] (https://es.wikipedia.org/wiki/Protocolo_de_transferencia_de_hipertexto)
-- [REST] (https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional)
-- [CORS Cliente] (https://www.stackhawk.com/blog/angular-cors-guide-examples-and-how-to-enable-it/)
-- [CORS Spring Servidor] (https://www.arquitecturajava.com/spring-rest-cors-y-su-configuracion/)
+- [HTTP](https://es.wikipedia.org/wiki/Protocolo_de_transferencia_de_hipertexto)
+- [REST](https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional)
+- [CORS Cliente](https://www.stackhawk.com/blog/angular-cors-guide-examples-and-how-to-enable-it/)
+- [CORS Spring Servidor](https://www.arquitecturajava.com/spring-rest-cors-y-su-configuracion/)
 - [Observables](https://medium.com/@mayrarodriguez/conozcamos-los-observables-15ee9e7c5aa9)
 - [Metodo Pipe](https://www.tektutorialshub.com/angular/angular-observable-pipe/#:~:text=The%20pipe%20method%20of%20the,or%20as%20an%20instance%20method.)

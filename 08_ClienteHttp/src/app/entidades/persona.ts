@@ -4,12 +4,17 @@
  */
 export class Persona{
 
-    id: number = 0
-    nombre: string = ""
-    apellidos: string = ""
-    edad: number = 0
+    id: number
+    nombre: string
+    apellidos: string
+    edad: number
         
-    constructor(){}
+    constructor(){
+        this.id = 0
+        this.nombre = ''
+        this.apellidos = ''
+        this.edad = 0
+    }
 
     /**
      * Método que convierte un objeto de tipo persona a formato JSON (ya que el 

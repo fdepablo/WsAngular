@@ -38,17 +38,18 @@ export class PersonasComponent implements OnInit {
   }
 
   public listar(){
-    let obs : Observable<Persona[]> = this._personaService.listar();
+    let obs : Observable<any> = this._personaService.listar();
       
     //Cuando invocamos el método subscribe es cuando ejecutamos la petición 
     //HTTP al servidor. Dentro de método ponemos 2 funciones lambda, next
     //se ejecutará si todo ha ido bien, error se ejecutará si ha habido
     //algún problema
     obs.subscribe({
-        next:  (respuesta: Persona[]) => {
+        next:  respuesta => {
           this.listaPersonas = respuesta;
+          console.log(`listar -> ${JSON.stringify(respuesta)}`)
         },
-        error: (e: any) => {
+        error: e => {
           this.listaPersonas = []
           console.log(`listar -> No se han podido listar las personas, ${e}`)
           alert(e)
@@ -69,7 +70,7 @@ export class PersonasComponent implements OnInit {
 
     this._personaService.acceder(idPersona)
       .subscribe({
-        next : (respuesta : Persona)   => {
+        next : respuesta => {
           console.log('seleccionar -> objeto: ' + JSON.stringify(respuesta))
           this.id = respuesta.id
           this.nombre = respuesta.nombre
@@ -79,7 +80,7 @@ export class PersonasComponent implements OnInit {
           this.insertarDeshabilitado = true
           this.modificarBorrarDeshabilitado = false          
         },
-        error: (e: any) => {
+        error: e => {
           console.log(`seleccionar -> No se ha podido seleccionar la persona, ${e}`)
           alert(e)
         }
@@ -103,12 +104,12 @@ export class PersonasComponent implements OnInit {
         console.log(`insertar -> Insertando Persona: ${persona.toString()}`)
         this._personaService.insertar(persona)
           .subscribe({
-            next : (respuesta : Persona) => {
-              console.log(`insertar -> Persona insertada, ${respuesta}`) 
+            next : respuesta => {
+              console.log(`insertar -> Persona insertada, ${JSON.stringify(respuesta)}`) 
               this.listar()
               this.vaciar()
             },
-            error: (e: any) => {
+            error: e => {
               console.log(`insertar -> No se ha podido insertar la persona, ${e}`)
               alert(e)
             }
@@ -140,12 +141,12 @@ export class PersonasComponent implements OnInit {
       console.log(`modificar -> Modificando Persona: ${persona.toString()}`)
       this._personaService.modificar(persona)
         .subscribe({
-          next : respuesta => {
-            console.log(`modificar -> Persona modificada, ${respuesta}`) 
+          next : () => {//En este caso, el servicio no devuelve nada en el body
+            console.log(`modificar -> Persona modificada`) 
             this.listar()
             this.vaciar()
           },
-          error: (e: any) => {
+          error: e => {
             console.log(`modificar -> No se ha podido modificar la persona, ${e}`)
             alert(e)
           }
@@ -169,11 +170,11 @@ export class PersonasComponent implements OnInit {
     this._personaService.borrar(this.id)
       .subscribe({
         next : respuesta => {
-          console.log(`borrar -> Persona modificada, ${respuesta}`) 
+          console.log(`borrar -> Persona borrada, ${JSON.stringify(respuesta)}`) 
           this.listar()
           this.vaciar()
         },
-        error: (e: any) => {
+        error: e => {
           console.log(`borrar -> No se ha podido borrar la persona, ${e}`)
           alert(e)
         }
@@ -209,7 +210,8 @@ export class PersonasComponent implements OnInit {
    * Método que valida si el nombre y los apellidos de una persona están rellenos. Además
    * oculta los mensajes de error
    * @param persona 
-   * @returns 
+   * @returns 0 en caso de que la persona esté validada, 1 en caso de que el nombre
+   * esté vacio y 2 en caso de que el apellido esté vacio
    */
    private validarPersona(persona : Persona) : number{
     this.ocultarMensajesError();

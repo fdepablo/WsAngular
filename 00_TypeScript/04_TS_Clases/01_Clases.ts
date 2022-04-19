@@ -1,7 +1,9 @@
 
+//Si queremos usar la clase en otros ficheros de "ts", debemos de usar la palabra "export"
 class Persona {
 
     private _atributo;
+
     public get atributo() {
         return this._atributo;
     }
@@ -17,6 +19,9 @@ class Persona {
     //Los atributos estaticos son comunes a todos los objetos
     public static numeroPersonas : number = 0;
 
+    //Solo podemos tener un constructor
+    //Los parámetros de entrada que pongamos dentro del constructor con la visibilidad, se crearan
+    //también como atributo
     constructor(){
         //A diferencia con otros lenguajes como Java, es obligatorio poner el this para
         //acceder a los atributos
@@ -43,6 +48,15 @@ class Persona {
         return `Hola me llamo ${this._nombre} y tengo ${this._edad} años`;
     }
 
+    //Podemos hacer documentación como en otros lenguajes
+    /**
+     * Metodo que compara la edad de  esta persona con la edad de persona que le pasemos 
+     * por parámetro
+     * @param p la persona que queremos comprarar
+     * @returns this en caso de que esta persona sea mayor que la persona pasada por 
+     * parámetro, p en caso de que la persona pasada por parámetro sea mayor, y null
+     * en caso de que sean iguales 
+     */
     public esMayor(p : Persona): Persona{
         if(this._edad > p._edad){
             return this
@@ -61,7 +75,7 @@ let persona2 = new Persona()
 //Los tipos de las referencias siempre serán "object"
 console.log("El tipo de la variable es: " + typeof(persona1))
 
-//Podemos cambiar el estado de un objeto mediante su set
+//Podemos cambiar el estado de un objeto mediante su 'set'
 //OJO! no se pone persona1.nombre("Steve Rogers")
 persona1.nombre = "Steve Rogers"
 persona1.edad = 45
@@ -69,13 +83,13 @@ persona1.edad = 45
 persona2.nombre = "Tony Stark"
 persona2.edad = 50
 
-//o acceder a ellos
+//o acceder a ellos mediante el 'get'
 console.log(persona1.nombre)
 console.log(persona1.edad)
 console.log(persona2.nombre)
 console.log(persona2.edad)
 
-//Los atributos estaticos se acceden a traves de su clase, incluso dentro de la
+//Los atributos estáticos se acceden a traves de su clase, incluso dentro de la
 //propia clase
 Persona.numeroPersonas = 2;
 console.log(Persona.numeroPersonas)
@@ -83,12 +97,12 @@ console.log(Persona.numeroPersonas)
 //Imprimimos la persona entera, por defecto lo saca con formato muy parecido a JSON
 console.log(persona1)//Persona { _nombre: 'Steve Rogers', _edad: 45 }
 
-//Tambien podemos invocar a sus metodos publicos desde fuera
+//Tambien podemos invocar a sus metodos públicos desde fuera
 console.log(persona1.saludar())
 let personaMayor = persona1.esMayor(persona2)
 console.log(personaMayor.nombre)
 
-//Operador "?"
+//Operador "?", operador de acceso seguro
 console.log("Operador '?'")
 persona1 = null
 //Si algo apunta a null e intentamos acceder a alguna de sus propiedades o métodos, 
@@ -96,6 +110,7 @@ persona1 = null
 //console.log(persona1.edad)//ERROR
 
 //Si queremos hacer un acceso seguro, podemos usar el operador '?'
+//y así no nos parará el programa
 console.log(persona1?.edad)//undefined
 
 //Tambien podemos crear atributos declarandolos en el constructor
@@ -144,6 +159,7 @@ class Empleado extends Persona{
     }
 
     //Podemos sobreescribir métodos
+    //Para ello, el método hijo debe de tener la misma firma que el método padre
     public saludar(): string {
         //Notese que como la vivibilidad del atributo nombre es "private", debemos de usar el 
         //método "get" para acceder a su valor. Idem con la edad. Podiamos haber declarado el 
@@ -163,14 +179,12 @@ console.log("El tipo de la variable es: " + typeof(empleado1))
 console.log(empleado1)
 
 //Con una referencia padre podemos apuntar a cualquier objeto hijo
-let persona3 = empleado1;
+let persona3 : Persona = empleado1;
 //Y se ejecutaran los metodos del objeto al que este apuntando mediante el polimorfismo
 console.log("Polimorfismo: la referencia es de persona pero se ejecuta el metodo del objeto empleado")
 console.log(persona3.saludar())
 //No podemos apuntar con una referencia hija a un objeto padre
 //empleado1 = persona1//error
-//Pero TS hace un casting de manera automática
-
 
 //Interfaces
 console.log("INTERFACES")
@@ -269,3 +283,6 @@ if(vehiculo1 instanceof Barco){
 //Tambien podemos crear referencias mediante inferencia de tipos
 let vehiculo2 = new Coche();
 vehiculo2.moverse();
+
+//Con esta referencia no podemos apuntar a una persona
+//vehiculo2 = new Persona()

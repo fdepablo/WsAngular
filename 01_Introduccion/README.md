@@ -42,6 +42,8 @@ Este proyecto ha sido creado mediante la CLI de angular con el comando:
 
 ![node_modules](img/node_modules.png "node_modules")
 
+Para borrar esta carpeta podemos hacerlo desde el editor con boton derecho, eliminar. Tambien podemos ejecutar el comando **npx npkill** en el proyecto y siguiendo las instrucciones. Podemos seguir [este video tutorial](https://www.youtube.com/watch?v=xVG20-7egDI) para más información.
+
 Además, en este repositorio, no tenemos versionada la carpeta **node_modules** por el espacio que ocupa y porque no aporta nada al código (ver fichero .gitignore), por lo que cuando descarguemos este workspace debemos de generar la carpeta **node_modules** a partir de un proyecto y copiarla dentro de **WsAngular**.
 
 Para generar la carpeta <b>node_modules</b> debemos ejecutar sobre la raiz de un proyecto (por ejemplo 01_Introduccion) el siguiente comando:

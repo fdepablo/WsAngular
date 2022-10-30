@@ -10,7 +10,7 @@ class Persona {
     public set atributo(value) {
         this._atributo = value;
     }
-    //En visual studio code podemos generas los setter y getter subrayando la línea
+    //En visual studio code podemos generar los setter y getter subrayando la línea
     //del atributo y pulsando el enlace que aparece a la derecha del número de línea.
     //también podemos hacerlo subrayando la línea | botón derecho | refactorizar
     private _nombre: string;

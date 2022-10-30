@@ -10,7 +10,7 @@ console.log(numero3)//el tipo es number y su valor es 10
 console.log(numero4)//el tipo es any y su valor es undefined
 
 //tambien podemos declarar constantes
-const CONSTANTE : number = 35
+const CONSTANTE_NUMERICA : number = 35
 
 //La siguiente linea da error, el tipo es number por declaración
 //nombre1 = 10;
@@ -32,6 +32,8 @@ let verdadero : boolean = true
 let variable : any = "Thor"
 variable = 5
 variable = false
+variable = null
+variable = undefined
 
 //--Arrays
 let numeros : number[] = [1,2,3]

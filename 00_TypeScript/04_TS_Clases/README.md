@@ -115,5 +115,5 @@ Para para crear una interfaz usaremos la palabra reservada <b>interface</b> y pa
 
 ## Consideraciones
 
-Este proyecto usa ES6, por lo que debemos compilar el código como tal (ver el README.md de la carpeta **00_TypeScript** para más información). Básicamente tenemos que crear el fichero "tsconfig.json" como el que tenemos al mismo nivel, y luego para compilar abrir una terminal y ejecutar el comando **tsc**. 
+Este proyecto usa ES6 (ya que las clases en JS nacieron en las últimas versiones), por lo que debemos compilar el código como tal (ver el README.md de la carpeta **00_TypeScript** para más información). Básicamente tenemos que crear el fichero "tsconfig.json" como el que tenemos al mismo nivel, y luego para compilar abrir una terminal y ejecutar el comando **tsc**. 
 

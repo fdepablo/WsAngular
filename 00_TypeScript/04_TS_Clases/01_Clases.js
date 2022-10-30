@@ -28,15 +28,15 @@ class Persona {
     set edad(value) {
         this._edad = value;
     }
-    //Podemos generar los metodos que queramos
+    //Podemos generar los métodos que queramos
     saludar() {
         return `Hola me llamo ${this._nombre} y tengo ${this._edad} años`;
     }
     //Podemos hacer documentación como en otros lenguajes
     /**
-     * Metodo que compara la edad de  esta persona con la edad de persona que le pasemos
+     * método que compara la edad de esta persona con la edad de persona que le pasemos
      * por parámetro
-     * @param p la persona que queremos comprarar
+     * @param p la persona que queremos comparar
      * @returns this en caso de que esta persona sea mayor que la persona pasada por
      * parámetro, p en caso de que la persona pasada por parámetro sea mayor, y null
      * en caso de que sean iguales
@@ -53,11 +53,11 @@ class Persona {
         }
     }
 }
-//Los atributos estaticos son comunes a todos los objetos
+//Los atributos estáticos son comunes a todos los objetos
 Persona.numeroPersonas = 0;
 //Creamos un objeto y su referencia
 let persona1 = new Persona();
-//Tambien podemos crearla mediante inferencia de tipos
+//también podemos crearla mediante inferencia de tipos
 let persona2 = new Persona();
 //Los tipos de las referencias siempre serán "object"
 console.log("El tipo de la variable es: " + typeof (persona1));
@@ -72,13 +72,13 @@ console.log(persona1.nombre);
 console.log(persona1.edad);
 console.log(persona2.nombre);
 console.log(persona2.edad);
-//Los atributos estáticos se acceden a traves de su clase, incluso dentro de la
+//Los atributos estáticos se acceden a través de su clase, incluso dentro de la
 //propia clase
 Persona.numeroPersonas = 2;
 console.log(Persona.numeroPersonas);
 //Imprimimos la persona entera, por defecto lo saca con formato muy parecido a JSON
 console.log(persona1); //Persona { _nombre: 'Steve Rogers', _edad: 45 }
-//Tambien podemos invocar a sus metodos públicos desde fuera
+//también podemos invocar a sus métodos públicos desde fuera
 console.log(persona1.saludar());
 let personaMayor = persona1.esMayor(persona2);
 console.log(personaMayor.nombre);
@@ -86,14 +86,14 @@ console.log(personaMayor.nombre);
 console.log("Operador '?'");
 persona1 = null;
 //Si algo apunta a null e intentamos acceder a alguna de sus propiedades o métodos, 
-//daria error en tiempo de ejecución y se pararía el programa
+//daría error en tiempo de ejecución y se pararía el programa
 //console.log(persona1.edad)//ERROR
 //Si queremos hacer un acceso seguro, podemos usar el operador '?'
 //y así no nos parará el programa
 console.log(persona1 === null || persona1 === void 0 ? void 0 : persona1.edad); //undefined
-//Tambien podemos crear atributos declarandolos en el constructor
+//también podemos crear atributos declarándolos en el constructor
 class Pelicula {
-    //En este caso, se nos creara implicitamente los atributos _titulo y _director
+    //En este caso, se nos creara implícitamente los atributos _titulo y _director
     //de manera privada.
     constructor(_titulo, _director) {
         this._titulo = _titulo;
@@ -131,9 +131,9 @@ class Empleado extends Persona {
     //Podemos sobreescribir métodos
     //Para ello, el método hijo debe de tener la misma firma que el método padre
     saludar() {
-        //Notese que como la vivibilidad del atributo nombre es "private", debemos de usar el 
+        //Notese que como la visibilidad del atributo nombre es "private", debemos de usar el 
         //método "get" para acceder a su valor. Idem con la edad. Podiamos haber declarado el 
-        //nombre y la edad como "protected "y entonces podriamos acceder a el sin problema
+        //nombre y la edad como "protected "y entonces podríamos acceder a el sin problema
         return `Hola me llamo ${this.nombre}, tengo ${this.edad} años y gano ${this._salario}`;
     }
 }
@@ -147,7 +147,7 @@ console.log("El tipo de la variable es: " + typeof (empleado1));
 console.log(empleado1);
 //Con una referencia padre podemos apuntar a cualquier objeto hijo
 let persona3 = empleado1;
-//Y se ejecutaran los metodos del objeto al que este apuntando mediante el polimorfismo
+//Y se ejecutarán los métodos del objeto al que este apuntando mediante el polimorfismo
 console.log("Polimorfismo: la referencia es de persona pero se ejecuta el metodo del objeto empleado");
 console.log(persona3.saludar());
 //No podemos apuntar con una referencia hija a un objeto padre
@@ -193,7 +193,7 @@ class Barco extends Vehiculo {
         console.log("Moc! Moc!");
     }
 }
-//La siguiente linea da error, no podemos crear un objeto de una clase abstracta
+//La siguiente línea da error, no podemos crear un objeto de una clase abstracta
 //let vehiculo1 : Vehiculo = new Vehiculo();
 //Pero si podemos apuntar a cualquier objeto que herede de la clase Vehiculo
 let vehiculo1 = new Coche();
@@ -209,7 +209,7 @@ else {
     console.log("No es un coche :(");
 }
 //Gracias al polimorfismo, dependiendo de a que vehiculo apuntemos se ejecutara
-//su metodo
+//su método
 vehiculo1 = new Barco();
 vehiculo1.moverse();
 vehiculo1.tocarBocina();
@@ -222,7 +222,7 @@ else {
 }
 //no podemos apuntar a una persona con una referencia de vehiculo
 //vehiculo1 = new Persona();
-//Tambien podemos crear referencias mediante inferencia de tipos
+//también podemos crear referencias mediante inferencia de tipos
 let vehiculo2 = new Coche();
 vehiculo2.moverse();
 //Con esta referencia no podemos apuntar a una persona

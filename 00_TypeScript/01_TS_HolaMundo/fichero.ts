@@ -5,7 +5,7 @@ comentarios
 */
 
 //Creamos una variable saludo de tipo string
-let saludo: string = 'Hola Mundo!';
+let saludo : string = 'Hola Mundo!';
 //Los puntos y comas finales son optativos
 console.log(saludo)
 

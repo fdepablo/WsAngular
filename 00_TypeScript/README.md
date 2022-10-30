@@ -100,8 +100,8 @@ Que nos creara el fichero NOMBRE_FICHERO.js. Una vez creado podemos usarlo para 
 
         Donde "es6" sería la versión de TS que vamos a usar. Se puede tomar como ejemplo el fichero que está en <b>04_TS_Clases</b>, no será hasta este ejemplo cuando necesitemos la versión 6 de ECMAScript.
 
-5. Existe una manera de estar compilando de manera automática todos los cambios de los ficheros .ts a ficheros .js (de manera parecida a lo que hace eclipse con los .java, que los convierte a .class sin que tengamos que usar el compilador). Para ello debemos abrir una terminal y ejecutar el comando <b>tsc -w -p .</p> (notese él "." del final), y cada vez que cambiemos un fichero .ts se creara automaticamente su fichero .js. Lo ideal será tener 2 terminales, una para compilar automáticamente y otra para ejecutar los ficheros .js. **IMPORTANTE** Para hacer esta práctica debemos de tener el fichero <b>tsconfig.json</b> en el directorio donde ejecutemos el comando <b>tsc -w -p .</p>. 
-Otra opción sería meter esta funcionalidad dentro del fichero tsconfig.json con el atributo "watch"
+5. Existe una manera de estar compilando de manera automática todos los cambios de los ficheros .ts a ficheros .js (de manera parecida a lo que hace eclipse con los .java, que los convierte a .class sin que tengamos que usar el compilador). Para ello debemos abrir una terminal y ejecutar el comando <b>tsc -w -p .</b> (notese él "." del final), y cada vez que cambiemos un fichero .ts se creara automaticamente su fichero .js. Lo ideal será tener 2 terminales, una para compilar automáticamente y otra para ejecutar los ficheros .js. **IMPORTANTE** Para hacer esta práctica debemos de tener el fichero <b>tsconfig.json</b> en el directorio donde ejecutemos el comando **tsc -w -p .** 
+Otra opción sería meter esta funcionalidad dentro del fichero tsconfig.json con el atributo "watch". Podemos crear este fichero en caso de no tenerlo
 
         {
             "compilerOptions": {
@@ -112,7 +112,7 @@ Otra opción sería meter esta funcionalidad dentro del fichero tsconfig.json co
 
 ## Bibliografía
 
-- <https://www.typescriptlang.org/)>
+- <https://www.typescriptlang.org/>
 - <https://www.tutorialspoint.com/typescript/>
 - <https://www.typescripttutorial.net/>
 - <https://softwarecrafters.io/typescript/typescript-tutorial-javascript-introduccion>

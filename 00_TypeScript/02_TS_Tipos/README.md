@@ -38,7 +38,7 @@ Una variable por definición es un espacio en memoria con un nombre asignado. Pa
 
         var/let [identificador] : [tipo];
 
-3. La siguiente manera sería parecida a la primera, pero el tipo de la variable se decidirá por <b>inferencia de tipos</b>, esto es, el tipo de la variable se decidirá en **el momento que se asigne el primer valor a dicha variable y seguirá así durante todo su ciclo de vida**.
+3. La siguiente manera sería parecida a la primera, pero el tipo de la variable se decidirá por <b>inferencia de tipos</b>, esto es, el tipo de la variable se decidirá en **el momento que se asigne el primer valor a dicha variable, cogiendo el tipo al tipo del valor asignado, y seguirá así durante todo su ciclo de vida**.
 
         var/let [identificador] = [value];
 

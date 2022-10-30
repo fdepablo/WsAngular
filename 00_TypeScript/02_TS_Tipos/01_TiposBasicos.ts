@@ -12,18 +12,18 @@ console.log(numero4)//el tipo es any y su valor es undefined
 //tambien podemos declarar constantes
 const CONSTANTE_NUMERICA : number = 35
 
-//La siguiente linea da error, el tipo es number por declaración
+//La siguiente línea da error, el tipo es number por declaración
 //nombre1 = 10;
 
-//La siguiente linea da error, el tipo de numero3 es de tipo number, que
-//se establecio por inferencia de tipos en tiempo de ejecución
+//La siguiente línea da error, el tipo de numero3 es de tipo number, que
+//se estableció por inferencia de tipos en tiempo de ejecución
 //numero3 = "Tony"
 
 //Pero podemos cambiar el valor a cualquier tipo que admita
 numero3 = 45
 numero3 = 34.56
-//numero3 = null //los numericos no admiente 'null'
-//numero3 = undefined //los numericos no admiente 'undefined'
+//numero3 = null //los numéricos no admiten 'null'
+//numero3 = undefined //los numéricos no admiten 'undefined'
 
 //booleans
 let verdadero : boolean = true
@@ -41,13 +41,13 @@ let numeros : number[] = [1,2,3]
 let numeros2 = [1,2,3]
 
 numeros[1] = 0
-//La siguiente linea error
+//La siguiente línea error
 //numeros[1] = "Steve"
 numeros2[1] = 4
-//la siguiente linea error, por inferencia se determino que el array sería de numeros
+//la siguiente línea error, por inferencia se determinó que el array sería de números
 //numeros2[1] = "Thanos"
 
-//Tambien podemos crear Arrays mediante generics como en Java
+//también podemos crear Arrays mediante “generics” como en Java
 let numeros3 : Array<number> = [1,2,3]
 console.log(numeros3)
 
@@ -57,7 +57,7 @@ let colorRojo: [number, number, number] = [255, 0, 0];
 let colorVerde  = [0, 255, 0];
 
 colorRojo[2] = 0;
-colorVerde[2] = 255;//no podriamos asignar un String
+colorVerde[2] = 255;//no podríamos asignar un String
 console.log(colorRojo)
 
 // Tipo union
@@ -66,3 +66,4 @@ numero = 5
 numero = "cinco"
 //Error, no puede ser boolean
 //numero = true
+

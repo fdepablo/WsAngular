@@ -1,11 +1,11 @@
 //Podemos compilar este codigo con "tsc tipos.ts" y luego ejecutarlo con "node tipos.js"
-let nombre1 : string = "Natasha"
-var numero2 : number
+let nombre1 : string = "Natasha Romanoff"
+var numero2 : number = 12
 let numero3 = 10
 let numero4
 
-console.log(nombre1)
-console.log(numero2)//el tipo es number y su valor es undefined
+console.log(nombre1)//el tipo es string y su valor es "Natasha Romanoff"
+console.log(numero2)//el tipo es number y su valor es 12
 console.log(numero3)//el tipo es number y su valor es 10
 console.log(numero4)//el tipo es any y su valor es undefined
 
@@ -22,8 +22,8 @@ const CONSTANTE : number = 35
 //Pero podemos cambiar el valor a cualquier tipo que admita
 numero3 = 45
 numero3 = 34.56
-numero3 = null
-numero3 = undefined
+//numero3 = null //los numericos no admiente 'null'
+//numero3 = undefined //los numericos no admiente 'undefined'
 
 //booleans
 let verdadero : boolean = true

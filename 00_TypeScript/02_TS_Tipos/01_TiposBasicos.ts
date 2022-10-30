@@ -1,4 +1,4 @@
-//Podemos compilar este codigo con "tsc tipos.ts" y luego ejecutarlo con "node tipos.js"
+//Podemos compilar este codigo con "tsc -t es6 tipos.ts" y luego ejecutarlo con "node tipos.js"
 let nombre1 : string = "Natasha Romanoff"
 var numero2 : number = 12
 let numero3 = 10

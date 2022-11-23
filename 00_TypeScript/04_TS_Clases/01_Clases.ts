@@ -44,7 +44,7 @@ class Persona {
     }
 
     //Podemos generar los métodos que queramos
-    public saludar(){
+    public saludar() : string{
         return `Hola me llamo ${this._nombre} y tengo ${this._edad} años`;
     }
 

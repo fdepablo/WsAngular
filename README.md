@@ -141,9 +141,8 @@ Se recomienda instalar las siguientes extensiones en VSC:
 
 Extensiones optativas:
 
-1. <b>Beautify</b>, para trabajar con HTML y CSS.
-2. <b>Angular 2 TypeScript Emmet</b>, para crear de manera más rápida HTML.
-3. <b>Markdown Preview Enhanced</b>, para ver procesados los ficheros con extensión **.md**.
+1. <b>Angular 2 TypeScript Emmet</b>, para crear de manera más rápida HTML.
+2. <b>Markdown Preview Enhanced</b>, para ver procesados los ficheros con extensión **.md**.
 
 ## Configuraciones especiales
 

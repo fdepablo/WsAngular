@@ -12,7 +12,7 @@ console.log(numero4)//el tipo es any y su valor es undefined
 //tambien podemos declarar constantes
 const CONSTANTE_NUMERICA : number = 35
 
-//La siguiente línea da error, el tipo es number por declaración
+//La siguiente línea da error, el tipo es string por declaración
 //nombre1 = 10;
 
 //La siguiente línea da error, el tipo de numero3 es de tipo number, que

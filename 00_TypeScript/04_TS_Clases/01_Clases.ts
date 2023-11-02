@@ -1,5 +1,7 @@
 
-//Si queremos usar la clase en otros ficheros de "ts", debemos de usar la palabra "export"
+//Si queremos usar la clase en otros ficheros de "ts" (muy habitual en Angular), 
+//debemos de usar la palabra "export" antes de la palabra "class". 
+///Ej: export class Persona {
 class Persona {
 
     private _atributo;

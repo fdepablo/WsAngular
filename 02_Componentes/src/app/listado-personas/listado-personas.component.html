@@ -1,15 +1,15 @@
 <h1>Listado de Personas</h1>
 <!-- 
-    Mediante interpolación "{{ATRIBUTO O METODO}}" podemos expandir atributos o llamar a metodos 
+    Mediante interpolación "{{ATRIBUTO O METODO}}" podemos expandir atributos o llamar a métodos 
     de las clases.
-    Dentro podemos poner tambien operaciones o expresiones
+    Dentro podemos poner también operaciones o expresiones
 -->
 <p id="1">
   Nombre: {{nombre}}
   Edad: {{edad}}
   Peso en Kg: {{peso}}
   Peso en libras: {{convertirPesoALibras()}}
-  Peso en Kg propuesto para verano (operacion bikini): {{peso - 5}}
+  Peso en Kg propuesto para verano (operación bikini): {{peso - 5}}
 </p>
 
 <!--   
@@ -29,10 +29,10 @@
 <br/>
 
 <!--
-  Aplicammos two way binding, podemos actualizar desde el html al componente o a 
+  Aplicamos Two Way Binding, de esta manera podemos actualizar desde el html al componente o a 
   la inversa. Usaremos la directiva [(ngModel)] igualandola a una propiedad
 -->
-<h4>Inserta la profesión de la persona</h4>
+<h4>Inserta la profesión de la persona: </h4>
 <input type="text" [(ngModel)]="profesion"/>
 <p>Replicando: {{profesion}}</p>
 

@@ -49,12 +49,12 @@ o de manera simplificada
 
 A parte de generar el fichero con el nombre del componente justo debajo de la carpeta **app**, también modifica el fichero **app.module.ts** para notificar a Angular de la existencia del componente
 
-Si tenemos instalados los plugins de Angular, VSC nos daría la opción al pulsar botón derecho sobre la carpeta que queramos.
+Si tenemos instalados los plugins de Angular, VSC nos daría la opción de crear un componente pulsando botón derecho sobre la carpeta que queramos y escogiendo la opción adecuada.
 
 Para borrar un componente en angular debemos de hacerlo a mano, para ello:
 
 1. Eliminar la carpeta donde se ha creado nuestro componente.
-2. Eliminar las referencias del componente del fichero **app.module.ts**, el "import" del componente y la declaración del componente.
+2. Eliminar las referencias del componente del fichero **app.module.ts**, esto es, el "import" del componente y la declaración del componente.
 
 En este ejemplo se van a crear los siguientes componentes
 
@@ -74,9 +74,9 @@ Dentro del Data Binding podemos encontrar **Property Binding, Event Binding y Tw
 
 ### Property Binding (PB)
 
-PB en Angular nos ayuda a enlazar valores a propiedades de elementos HTML o a directivas (que veremos más adelante), y de esta manera, poder cambiar valores de manera dinámica. Algunos ejemplos pueden ser habilitar o deshabilitar botones o poner rutas a nivel programático.
+**PB** en Angular nos ayuda a enlazar valores a propiedades de elementos HTML o a directivas (que veremos más adelante), y de esta manera, poder cambiar valores de manera dinámica. Algunos ejemplos pueden ser habilitar o deshabilitar botones o poner rutas a nivel programático.
 
-PB ayuda a mover valores en una dirección, desde la propiedad de un componente hasta la propiedad del elemento HTML (por ejemplo).
+**PB** ayuda a mover valores en una dirección, desde la propiedad de un componente hasta la propiedad del elemento HTML (por ejemplo).
 
 Para enlazar a una propiedad de un elemento, envolvemos la propiedad con corchetes **[]**, de esta manera identificamos dicha propiedad como "target property". Ejemplo en HTML:
 
@@ -86,9 +86,9 @@ En este caso estamos diciendo que la propiedad **src** la vamos a obtener de una
 
 ### Event Binding (EB)
 
-Mediante EB podemos escuchar los eventos de nuestro HTML.
+Mediante **EB** podemos escuchar los eventos de nuestro HTML.
 
-Si trabajamos con JS los nombres de los eventos empiezan **con la palabra on** como puede ser **onclick**, en Angular si queremos hacer EB, los eventos deben empezar **sin la palabra on** y entre parentesis, como puede ser **(click)**. Una vez declarado el EB lo igualaremos al método del componente que queramos.
+Si trabajamos con JS los nombres de los eventos empiezan **con la palabra on**, como puede ser **onclick**, en Angular si queremos hacer EB, los eventos deben empezar **sin la palabra on** y entre parentesis, como puede ser **(click)**. Una vez declarado el EB lo igualaremos al método del componente que queramos.
 
     <button (click)="metodo()">Boton</button>
 

@@ -74,7 +74,7 @@ Dicho servicio acepta las siguientes peticiones
     - PUT /personas/{ID} -> Modifica una persona por ID enviada en el body. Devuelve 200 si la encuentra, 404 en caso contrario.
     - DELETE /personas/{ID} -> Borra una persona por ID. Devuelve 200 y el objeto de tipo persona si la encuentra, 404 en caso contrario.
 
-Podemos encontrar el ejecutable con el servicio en el fichero **.jar** de la raíz de este workspace. Para arrancar el servicio simplemente tenemos que ejecutar el fichero **restPersona.bat**, que también está en la raíz del proyecto, mediante una terminal de comandos.
+Podemos encontrar el ejecutable con el servicio en el fichero **.jar** de la raíz de este workspace. Para arrancar el servicio simplemente tenemos que ejecutar el fichero **ejecutarRestPersona.bat**, que también está en la raíz del proyecto, mediante una terminal de comandos.
 
 Una vez arrancando, ya podremos poner en marcha la aplicación. El servicio se arrancara en **http://localhost:8080**.
 
@@ -86,7 +86,7 @@ Para parar el servicio podemos pulsar **ctrl+C**
 
 Este ejemplo va a seguir la metodología vista en el 07_Servicios, pero esta vez, el servicio que vamos a crear va a usar la librería HttpClient para hacer peticiones al servidor REST.
 
-Además, en vez de utilizar la entidad héroe, vamos a utilizar la entidad **persona**, que tiene un id, nombre, apellidos y edad.
+Además, en vez de utilizar la entidad **héroe**, vamos a utilizar la entidad **persona**, que tiene como atributos id, nombre, apellidos y edad.
 
 Vamos a tener los siguientes componentes
 
@@ -95,7 +95,7 @@ Vamos a tener los siguientes componentes
 3. personas, se encarga de mostrar el formulario e interactuar con el servicio de personas.
 4. persona, se encarga de pintar cada una de las personas.
 
-También tendremos la entidad "heroe" y el servicio "heroe"
+También tendremos la entidad "persona" y el servicio "persona"
 
 ## Bibliografía
 

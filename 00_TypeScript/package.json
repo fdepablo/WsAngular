@@ -1,0 +1,12 @@
+{
+  "name": "00-typescript",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "typecheck:clases": "tsc --noEmit -p 04_TS_Clases",
+    "build:clases": "tsc -p 04_TS_Clases"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.2"
+  }
+}
